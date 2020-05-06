@@ -15,7 +15,7 @@ const Centered = styled('div', {
   justifyContent: 'center',
   alignItems: 'center',
   height: '100%',
-  marginTop: '100px',
+  width: '100wh'
 });
 
 const THEME = {
@@ -30,7 +30,8 @@ function App() {
   return (
     <StyletronProvider value={engine}>
       <BaseProvider theme={theme === THEME.light ? LightTheme : DarkTheme}>
-      <NavBar 
+        <Layer>
+        <NavBar 
         toggleChecked={toggle} 
         toggleOnChange={e => {
           let nextToggle = toggle;
@@ -39,19 +40,19 @@ function App() {
           setTheme(theme === THEME.light ? THEME.dark : THEME.light);}}
         themeName={theme === THEME.light ? 'dark mode' : 'light mode'}
       />
-        <Centered>
-          <Layer>
-            <Button
-              onClick={() => setTheme(theme === THEME.light ? THEME.dark : THEME.light)}
-              kind={KIND.primary}
-              size={SIZE.default}
-              shape={SHAPE.default}
-            >
-              Change themes!
-            </Button>
-
-          </Layer>
-        </Centered>
+        </Layer>
+        <Layer>
+        <div style={{backgroundColor: 'blue', height: '100vh'}}>
+        <p>
+          text
+        </p>
+        </div>
+        <div style={{backgroundColor: 'red', width: '100%', position: 'relative'}}>
+          <p>
+            hello world!
+          </p>
+        </div>
+        </Layer>
       </BaseProvider>
     </StyletronProvider>
   );

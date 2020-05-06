@@ -15,19 +15,21 @@ import {H5} from 'baseui/typography'
 
 
 function NavBar(props) {
-  const [css] = useStyletron();
+  const [css, theme] = useStyletron();
   const containerStyles = css({
     boxSizing: 'border-box',
     width: '100vw',
     position: 'fixed',
     top: '0',
     left: '0',
+    boxShadow: '0 5px 7px 0 rgba(0,0,0,0.3)',
+    //backgroundColor: theme.colors.background
   });
   return (
     <React.Fragment>
         <Layer>
           <div className={containerStyles}>
-          <HeaderNavigation>
+          <HeaderNavigation style={{borderBottomWidth: 0, backgroundColor: `${theme.colors.background}`}}>
           <StyledNavigationList $align={ALIGN.left}>
             <StyledNavigationItem>
               <H5 margin={0}>
