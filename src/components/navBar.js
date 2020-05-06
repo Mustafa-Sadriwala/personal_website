@@ -3,50 +3,16 @@ import {useStyletron} from 'baseui';
 import {Button} from 'baseui/button';
 import {Layer} from 'baseui/layer';
 import {
-  ChevronDown,
-  Delete,
-  Upload as Icon,
-} from 'baseui/icon';
-import {Unstable_AppNavBar as AppNavBar} from 'baseui/app-nav-bar';
+  HeaderNavigation,
+  ALIGN,
+  StyledNavigationList,
+  StyledNavigationItem
+} from "baseui/header-navigation";
+import { StyledLink } from "baseui/link";
+import {Checkbox, STYLE_TYPE} from 'baseui/checkbox';
+import {H5} from 'baseui/typography'
 
-function renderItem(item) {
-  return item.label;
-}
-const MAIN_NAV = [
-  {
-    icon: Icon,
-    item: {label: 'Primary alpha1'},
-    mapItemToNode: renderItem,
-    mapItemToString: renderItem,
-  },
-  {
-    icon: Icon,
-    item: {label: 'Primary alpha2'},
-    mapItemToNode: renderItem,
-    mapItemToString: renderItem,
-  },
-  {
-    icon: ChevronDown,
-    item: {label: 'Primary alpha3'},
-    mapItemToNode: renderItem,
-    mapItemToString: renderItem,
-    navExitIcon: Delete,
-    nav: [
-      {
-        icon: Icon,
-        item: {label: 'Secondary menu1'},
-        mapItemToNode: renderItem,
-        mapItemToString: renderItem,
-      },
-      {
-        icon: Icon,
-        item: {label: 'Secondary menu2'},
-        mapItemToNode: renderItem,
-        mapItemToString: renderItem,
-      },
-    ],
-  }
-];
+
 
 function NavBar(props) {
   const [css] = useStyletron();
@@ -61,13 +27,40 @@ function NavBar(props) {
     <React.Fragment>
         <Layer>
           <div className={containerStyles}>
-            <AppNavBar
-              appDisplayName="Mustafa Sadriwala"
-              mainNav={MAIN_NAV}
-              onNavItemSelect={({item}) => {
-                console.log(item);
-              }}
-            />
+          <HeaderNavigation>
+          <StyledNavigationList $align={ALIGN.left}>
+            <StyledNavigationItem>
+              <H5 margin={0}>
+                Mustafa Sadriwala
+              </H5>
+            </StyledNavigationItem>
+          </StyledNavigationList>
+          <StyledNavigationList $align={ALIGN.center} />
+          <StyledNavigationList $align={ALIGN.right}>
+            <StyledNavigationItem>
+              <StyledLink href="#basic-link1">
+                Tab Link One
+              </StyledLink>
+            </StyledNavigationItem>
+            <StyledNavigationItem>
+              <StyledLink href="#basic-link2">
+                Tab Link Two
+              </StyledLink>
+            </StyledNavigationItem>
+          </StyledNavigationList>
+          <StyledNavigationList $align={ALIGN.right} style={{'marginRight': '30px'}}>
+            <StyledNavigationItem>
+              <Checkbox
+                checked={props.toggleChecked}
+                onChange={props.toggleOnChange}
+                checkmarkType={STYLE_TYPE.toggle_round}
+                labelPlacement="top"
+              >
+                {props.themeName}
+              </Checkbox>
+            </StyledNavigationItem>
+          </StyledNavigationList>
+          </HeaderNavigation>
           </div>
         </Layer>
     </React.Fragment>

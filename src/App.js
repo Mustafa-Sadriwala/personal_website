@@ -26,10 +26,19 @@ const THEME = {
 
 function App() {
   const [theme, setTheme] = React.useState(THEME.light);
+  const [toggle, setToggle] = React.useState(false);
   return (
     <StyletronProvider value={engine}>
       <BaseProvider theme={theme === THEME.light ? LightTheme : DarkTheme}>
-      <NavBar />
+      <NavBar 
+        toggleChecked={toggle} 
+        toggleOnChange={e => {
+          let nextToggle = toggle;
+          nextToggle = e.currentTarget.checked;
+          setToggle(nextToggle);
+          setTheme(theme === THEME.light ? THEME.dark : THEME.light);}}
+        themeName={theme === THEME.light ? 'dark mode' : 'light mode'}
+      />
         <Centered>
           <Layer>
             <Button
