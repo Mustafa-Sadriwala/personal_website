@@ -18,6 +18,7 @@ function Header(props) {
       });
     return(
     <React.Fragment>
+        {/* TODO: add a profile picture and shit or at least a rectangle where a pic should go lol */}
         <div className={css({height: "100vh", width: '100%', zIndex: 1})}>
             <div className={css({paddingTop: "110px"})}>
             <Grid>
@@ -86,6 +87,14 @@ function Header(props) {
             <svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
                 <g transform="translate(300,300)">
                     <path d="M185.5,-130.3C228.7,-93.7,244,-17.3,218.4,31.7C192.7,80.6,126.1,102,62.5,134.3C-1,166.7,-61.5,209.9,-110.5,198.3C-159.6,186.7,-197.3,120.1,-209.5,52C-221.8,-16.2,-208.6,-86,-169.5,-121.6C-130.3,-157.2,-65.2,-158.6,3,-161C71.1,-163.4,142.3,-166.8,185.5,-130.3Z" fill="#FF6FAC" />
+                </g>
+            </svg>
+            </div>
+            {/* POSSIBLE:   top: [-35%, 40%] left: [-20%, 70%]*/}
+            <div className={css({position: 'absolute',top: '40%',left: '70%',width: '100%'})}>
+            <svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                <g transform="translate(300,300)">
+                    <path d="M116.5,-85.1C149.7,-51.4,174.3,-3,153.7,14.2C133.2,31.5,67.5,17.5,13,54.3C-41.5,91,-84.8,178.4,-123.4,186.5C-162,194.7,-196.1,123.6,-187.8,68.9C-179.4,14.2,-128.8,-24.1,-90.5,-59C-52.1,-93.9,-26.1,-125.4,7.8,-131.7C41.7,-137.9,83.4,-118.8,116.5,-85.1Z" fill="#9FDFAA" />
                 </g>
             </svg>
             </div>
