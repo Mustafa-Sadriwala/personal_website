@@ -31,7 +31,7 @@ function Header(props) {
     shuffleArray(blobColors)
     // medium blob near name/intro
     // Possible spawn   top: [-30, -10]     left: [-20, 0]
-    const Blob1 = styled('div', ({$theme}) => {
+    const Blob1 = styled('div', () => {
         return {
         position: 'absolute',
         top: ((Math.random() * -20) - 10).toString() + "%",
@@ -44,7 +44,7 @@ function Header(props) {
     });
     // small blob near center
     // Possible spawn   top: [-30, 20]      left: [-20, 60]
-    const Blob2 = styled('div', ({$theme}) => {
+    const Blob2 = styled('div', () => {
         return {
         position: 'absolute',
         top: ((Math.random() * 50) - 30).toString() + "%",
@@ -57,7 +57,7 @@ function Header(props) {
     });
     // large blob on the right
     // Possible spawn   top: [-30, 40]      left: [55, 70]
-    const Blob3 = styled('div', ({$theme}) => {
+    const Blob3 = styled('div', () => {
         return {
         position: 'absolute',
         top: ((Math.random() * 70) - 30).toString() + "%",
@@ -70,7 +70,7 @@ function Header(props) {
     });
     // medium blob in the center
     // Possible spawn   top: [20, 40]       left: [-10, 52]
-    const Blob4 = styled('div', ({$theme}) => {
+    const Blob4 = styled('div', () => {
         return {
         position: 'absolute',
         top: ((Math.random() * 20) + 20).toString() + "%",
@@ -83,7 +83,7 @@ function Header(props) {
     });
     // small/medium blob on bottom-right
     // Possible spawn   top: [-35, 45]      left: [60, 70]
-    const Blob5 = styled('div', ({$theme}) => {
+    const Blob5 = styled('div', () => {
         return {
         position: 'absolute',
         top: ((Math.random() * 80) - 35).toString() + "%",
