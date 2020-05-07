@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<svg
+  width="600"
+  height="600"
+  viewBox="0 0 600 600"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <g transform="translate(300,300)">
+    <path d="M152,22C152,58.7,76,117.3,15.5,117.3C-45,117.3,-90,58.7,-90,22C-90,-14.7,-45,-29.3,15.5,-29.3C76,-29.3,152,-14.7,152,22Z" fill="#FFB4BC" />
+  </g>
+</svg>
+  

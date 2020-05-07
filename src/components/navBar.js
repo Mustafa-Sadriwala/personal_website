@@ -23,6 +23,7 @@ function NavBar(props) {
     top: '0',
     left: '0',
     boxShadow: '0 5px 7px 0 rgba(0,0,0,0.3)',
+    zIndex: 2
     //backgroundColor: theme.colors.background
   });
   return (
