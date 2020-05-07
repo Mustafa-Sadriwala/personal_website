@@ -9,6 +9,7 @@ import {Layer} from 'baseui/layer';
 
 import 'react-typist/dist/Typist.css';
 import './../blob.scss'
+import profile from './../assets/DSC04973.jpg'
 
 import { Paragraph1 } from 'baseui/typography';
 
@@ -25,17 +26,17 @@ function shuffleArray(array) {
 function Header(props) {
     const [css, theme] = useStyletron();
     const headerStyles = css({
-        display: 'inline-block', marginTop:0, marginBottom: 0
+        display: 'inline-block', marginTop:0, marginBottom: 0, paddingTop: 0, paddingBottom:0,
       });
     let blobColors = [theme.colors.accent700, theme.colors.accent600, theme.colors.accent500, theme.colors.accent400, theme.colors.accent300, theme.colors.accent200, theme.colors.accent100, theme.colors.accent];
     shuffleArray(blobColors)
     // medium blob near name/intro
-    // Possible spawn   top: [-30, -10]     left: [-20, 0]
+    // Possible spawn   top: [-30, -10]     left: [10, 30]
     const Blob1 = styled('div', () => {
         return {
         position: 'absolute',
         top: ((Math.random() * -20) - 10).toString() + "%",
-        left: (Math.random() * -20).toString() + "%",
+        left: ((Math.random() * 20) +10).toString() + "%",
         fill: blobColors[0],
         animation: "move1 60s ease-in-out infinite",
         transformOrigin: "50% 50%",
@@ -43,11 +44,11 @@ function Header(props) {
         };
     });
     // small blob near center
-    // Possible spawn   top: [-30, 20]      left: [-20, 60]
+    // Possible spawn   top: [-10, 40]      left: [-20, 60]
     const Blob2 = styled('div', () => {
         return {
         position: 'absolute',
-        top: ((Math.random() * 50) - 30).toString() + "%",
+        top: ((Math.random() * 50) - 10).toString() + "%",
         left:((Math.random() * 80) - 20).toString() + "%",
         fill: blobColors[1],
         animation: "move2 30s ease-in-out infinite",
@@ -99,33 +100,37 @@ function Header(props) {
         {/* TODO: add a profile picture and shit or at least a rectangle where a pic should go lol */}
         <div className={css({height: "100vh", width: '100%', zIndex: 5})}>
             <div className={css({paddingTop: "110px"})}>
-            <Grid>
+            <Grid gridGaps={[0,0,0]} gridGutters={[8,16,32]}>
+            
+            <Cell span={[3, 6, 8]}>
+            <Cell span={[3,6,8]}>
+              <Paragraph1 className={headerStyles} style={{paddingBottom: '30px', paddingLeft: 15, color: theme.colors.accent100}}>Hi, my name is..</Paragraph1>
+            </Cell>
             <Typist cursor={{show: false}}>
             <HeadingLevel>
             <Cell span={[3,6,8]}>
-              <Heading className={headerStyles}>Mustafa</Heading>
+              <Heading className={headerStyles} style={{fontSize: 150, paddingBotom: '30px'}} >Mustafa</Heading>
             </Cell>
             <Typist.Delay ms={200} />
-            <Cell span={[2,4,6]}>
-              <Heading className={headerStyles}>Sadriwala</Heading>
+            <Cell span={[3,6,8]}>
+              <Heading style={{fontSize: 150, paddingTop: '30px'}}  className={headerStyles}>Sadriwala</Heading>
             </Cell>
             <Typist.Delay ms={100} />
-            <Cell>
-              <Paragraph1 className={headerStyles}>
+            <Cell span={[3,6,8]}>
+              <Paragraph1 style={{fontSize: 50, paddingTop: '20px', paddingLeft: 0}} className={headerStyles}>
                 "Moose"
               </Paragraph1>
             </Cell>
             </HeadingLevel>
             </Typist>
-            </Grid>
-            <Grid>
             <Cell span={[3,6,8]}>
               <Paragraph1>
-                A fast-learning, honors computer science senior at the University of Texas at Dallas 
+                I'm a fast-learning, honors computer science senior at the University of Texas at Dallas 
                 with an affinity for software development, writing, and painting. For a brief explanation 
                 of recursion check out my personal website&nbsp;
                 <StyledLink href="https://mustafa-sadriwala.github.io/personal_website/">here!</StyledLink>
               </Paragraph1>
+            </Cell>
             </Cell>
             </Grid>
             </div>
