@@ -30,63 +30,68 @@ function Header(props) {
     let blobColors = [theme.colors.accent700, theme.colors.accent600, theme.colors.accent500, theme.colors.accent400, theme.colors.accent300, theme.colors.accent200, theme.colors.accent100, theme.colors.accent];
     shuffleArray(blobColors)
     // medium blob near name/intro
+    // Possible spawn   top: [-30, -10]     left: [-20, 0]
     const Blob1 = styled('div', ({$theme}) => {
         return {
         position: 'absolute',
-        top: '-20%',
-        left: '-10%',
+        top: ((Math.random() * -20) - 10).toString() + "%",
+        left: (Math.random() * -20).toString() + "%",
         fill: blobColors[0],
         animation: "move1 60s ease-in-out infinite",
         transformOrigin: "50% 50%",
-        zIndex: Math.random() * 4,
+        zIndex: Math.floor(Math.random() * 4),
         };
     });
     // small blob near center
+    // Possible spawn   top: [-30, 20]      left: [-20, 60]
     const Blob2 = styled('div', ({$theme}) => {
         return {
         position: 'absolute',
-        top: '-10%',
-        left:'25%',
+        top: ((Math.random() * 50) - 30).toString() + "%",
+        left:((Math.random() * 80) - 20).toString() + "%",
         fill: blobColors[1],
         animation: "move2 30s ease-in-out infinite",
         transformOrigin: "50% 50%",
-        zIndex: Math.random() * 4,
+        zIndex: Math.floor(Math.random() * 2) + 2,
         };
     });
     // large blob on the right
+    // Possible spawn   top: [-30, 40]      left: [55, 70]
     const Blob3 = styled('div', ({$theme}) => {
         return {
         position: 'absolute',
-        top: '0%',
-        left:'70%',
+        top: ((Math.random() * 70) - 30).toString() + "%",
+        left:((Math.random() * 15) + 55).toString() + "%",
         fill: blobColors[2],
         animation: "move3 70s ease-in-out infinite",
         transformOrigin: "50% 50%",
-        zIndex: 1,
+        zIndex: Math.floor(Math.random() * 4),
         };
     });
     // medium blob in the center
+    // Possible spawn   top: [20, 40]       left: [-10, 52]
     const Blob4 = styled('div', ({$theme}) => {
         return {
         position: 'absolute',
-        top: '20%',
-        left:'25%',
+        top: ((Math.random() * 20) + 20).toString() + "%",
+        left: ((Math.random() * 62) - 10).toString() + "%",
         fill: blobColors[3],
         animation: "move4 70s ease-in-out infinite",
         transformOrigin: "50% 50%",
-        zIndex: Math.random() * 4,
+        zIndex: Math.floor(Math.random() * 2),
         };
     });
     // small/medium blob on bottom-right
+    // Possible spawn   top: [-35, 45]      left: [60, 70]
     const Blob5 = styled('div', ({$theme}) => {
         return {
         position: 'absolute',
-        top: '40%',
-        left:'70%',
+        top: ((Math.random() * 80) - 35).toString() + "%",
+        left:((Math.random() * 10) + 60).toString() + "%",
         fill: blobColors[4],
         animation: "move5 30s ease-in-out infinite",
         transformOrigin: "50% 50%",
-        zIndex: 1,
+        zIndex: Math.floor(Math.random() * 4),
         };
     });
     return(
