@@ -99,25 +99,25 @@ function Header(props) {
     <React.Fragment>
         {/* TODO: add a profile picture and shit or at least a rectangle where a pic should go lol */}
         <div className={css({height: "100vh", width: '100%', zIndex: 5})}>
-            <div className={css({paddingTop: "110px"})}>
+            <div className={css({paddingTop: "150px"})}>
             <Grid gridGaps={[0,0,0]} gridGutters={[8,16,32]}>
             
             <Cell span={[3, 6, 8]}>
             <Cell span={[3,6,8]}>
-              <Paragraph1 className={headerStyles} style={{paddingBottom: '30px', paddingLeft: 15, color: theme.colors.accent100}}>Hi, my name is..</Paragraph1>
+              <Paragraph1 className={headerStyles} style={{paddingBottom: '35px', paddingLeft: '1vw', color: theme.colors.accent100}}>Hi, my name is..</Paragraph1>
             </Cell>
             <Typist cursor={{show: false}}>
             <HeadingLevel>
             <Cell span={[3,6,8]}>
-              <Heading className={headerStyles} style={{fontSize: 150, paddingBotom: '30px'}} >Mustafa</Heading>
+              <Heading className={headerStyles} style={{fontSize: '15vw', paddingBotom: '50px'}} >Mustafa</Heading>
             </Cell>
             <Typist.Delay ms={200} />
             <Cell span={[3,6,8]}>
-              <Heading style={{fontSize: 150, paddingTop: '30px'}}  className={headerStyles}>Sadriwala</Heading>
+              <Heading style={{fontSize: '15vw', paddingTop: '50px'}}  className={headerStyles}>Sadriwala</Heading>
             </Cell>
             <Typist.Delay ms={100} />
             <Cell span={[3,6,8]}>
-              <Paragraph1 style={{fontSize: 50, paddingTop: '20px', paddingLeft: 0}} className={headerStyles}>
+              <Paragraph1 style={{fontSize: '5vw', paddingTop: '20px', paddingLeft: 0}} className={headerStyles}>
                 "Moose"
               </Paragraph1>
             </Cell>
