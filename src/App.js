@@ -49,8 +49,11 @@ function App() {
       />
         </Layer>
         <Centered>
-        <Header theme={`$theme`}/>
+        <Header theme={theme}/>
         </Centered>
+        <div>
+          text text text
+        </div>
       </BaseProvider>
   );
 }

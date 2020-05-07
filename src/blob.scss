@@ -1,0 +1,50 @@
+
+// medium blob near name/intro
+@keyframes move1 {
+    0%   { transform: scale(1)}
+    38%  { transform: scale(0.7, 1.3) translate(10vw, -5vh) rotate(-30deg); }
+    40%  { transform: scale(0.7, 1.3) translate(10vw, -5vh) rotate(-30deg); }
+    78%  { transform: scale(1.2, .8) translate(-5vw, 10vh) rotate(30deg); }
+    80%  { transform: scale(1.2, .8) translate(-5vw, 10vh) rotate(30deg); }
+    100% { transform: scale(1)}
+  }
+
+// small blob near center
+  @keyframes move2 {
+    0%   { transform: scale(1)}
+    38%  { transform: scale(1.5, .8) translate(-20vw, 10vh) rotate(-30deg); }
+    40%  { transform: scale(1.5, .8) translate(-20vw, 10vh) rotate(-30deg); }
+    68%  { transform: scale(0.8, 1.5) translate(20vw, 30vh);}
+    70%  { transform: scale(0.8, 1.5) translate(20vw, 30vh);}
+    100% { transform: scale(1)}
+  }
+
+// large blob on the right
+  @keyframes move3 {
+      0%    { transform: scale(1)}
+      38%   { transform: scale(.6, .8) translate(4vw, 10vh) rotate(20deg)}
+      40%   { transform: scale(.6, .8) translate(4vw, 10vh) rotate(20deg)}
+      78%   { transform: scale(1.4, 1.2) translate(-6vw, -10vh) rotate(-20deg)}
+      80%   { transform: scale(1.4, 1.2) translate(-6vw, -10vh) rotate(-20deg)}
+      100%  { transform: scale(1)}
+  }
+
+// medium blob in the center
+  @keyframes move4 {
+    0%    { transform: scale(1)}
+    38%   { transform: scale(1.5, 1.2) translate(15vw, 5vh); }
+    40%   { transform: scale(1.5, 1.2) translate(15vw, 5vh); }
+    78%   { transform: scale(1, .7) translate(-10vw, -10vh); }
+    80%   { transform: scale(1, .7) translate(-10vw, -10vh); }
+    100%  { transform: scale(1)}
+}
+
+// small/medium blob on bottom-right
+@keyframes move5 {
+    0%    { transform: scale(1)}
+    38%   { transform: scale(.8, 1.6) translate(-10vw, 15vh) rotate(20deg)}
+    40%   { transform: scale(.8, 1.6) translate(-10vw, 15vh) rotate(20deg)}
+    68%   { transform: scale(3, 1) translate(-20vw, 15vh) }
+    70%   { transform: scale(3, 1) translate(-20vw, 15vh) }
+    100%  { transform: scale(1)}
+}
