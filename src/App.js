@@ -31,6 +31,7 @@ const THEME = {
   dark: 'dark',
 };
 
+// theme: https://coolors.co/f6ddc5-ffcdb2-ffb4a2-f2a69f-e5989b-b5838d-917681-6d6875-4a4754
 
 const primitives = {
   accent: '#F6DDC5',
