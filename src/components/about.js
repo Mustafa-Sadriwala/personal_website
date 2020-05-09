@@ -10,8 +10,9 @@ import { Paragraph1 } from 'baseui/typography';
 import profile from './../assets/DSC04973.jpg'
 
 
-function About(){
+function About(props){
 const [css, theme] = useStyletron();
+const accentColor = (props.lightTheme ? theme.colors.accent50 : theme.colors.accent600)
 
 const overlayInner = css({
     position: "absolute",
@@ -19,11 +20,12 @@ const overlayInner = css({
     bottom: 0,
     left: 0,
     right: 0,
-    height: "100%",
+    height: "99.5%",
     width: "100%",
     opacity: 0.5,
+    borderRadius: '10px',
     transition: ".5s ease",
-    backgroundColor: theme.colors.backgroundAccent,
+    backgroundColor: accentColor,
     ':hover' : {
         opacity: 0
     },
@@ -34,10 +36,11 @@ const headerStyles = css({
 
 const overlayOuter = css({
     position: "relative",
-    boxShadow: "20px 20px 0 -5px" + theme.colors.backgroundAccent + ", 20px 20px 0 0" + theme.colors.accent100,
+    borderRadius: '10px',
+    boxShadow: "25px 22px 0 -5px" + theme.colors.background + ", 25px 22px 0 0" + accentColor,
     transition: "box-shadow ease 250ms",
     ':hover' : {
-        boxShadow: "10px 10px 0 -5px" + theme.colors.backgroundAccent + ", 10px 10px 0 0" + theme.colors.accent100,
+        boxShadow: "15px 12px 0 -5px" + theme.colors.background + ", 15px 12px 0 0" + accentColor,
     }
 })
 return (
@@ -63,7 +66,7 @@ return (
             </Cell>
             <Cell skip={[0, 1, 2]} span={[2,3,4]}>
                 <div className={overlayOuter}>
-                <img src={profile} style={{width: '100%', objectFit: "cover"}} />
+                <img src={profile} style={{width: '100%', objectFit: "cover", borderRadius: '10px'}} />
                 <div className={overlayInner} />
                 </div>
             </Cell>

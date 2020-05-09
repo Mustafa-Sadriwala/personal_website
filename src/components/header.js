@@ -22,12 +22,17 @@ function shuffleArray(array) {
 }
 
 
-function Header() {
+function Header(props) {
     const [css, theme] = useStyletron();
     const headerStyles = css({
         display: 'inline-block', marginTop:0, marginBottom: 0, paddingTop: 0, paddingBottom:0,
       });
-    let blobColors = [theme.colors.accent700, theme.colors.accent600, theme.colors.accent500, theme.colors.accent400, theme.colors.accent300, theme.colors.accent200, theme.colors.accent100, theme.colors.accent];
+    let blobColors = [];
+    if(props.lightTheme){
+        blobColors = [theme.colors.accent, theme.colors.accent50, theme.colors.accent100, theme.colors.accent200, theme.colors.accent300];
+     } else {
+        blobColors = [theme.colors.accent700, theme.colors.accent600, theme.colors.accent500, theme.colors.accent400, theme.colors.accent300];
+     } 
     shuffleArray(blobColors)
     // medium blob near name/intro
     // Possible spawn   top: [-30, -10]     left: [-20, 30]
@@ -102,7 +107,7 @@ function Header() {
             <Grid gridGaps={[0,0,0]} gridGutters={[8,16,32]}>
             <Cell span={[3, 6, 8]}>
             <Cell span={[3,6,8]}>
-              <Paragraph1 className={headerStyles} style={{paddingBottom: '50px', paddingLeft: '1vw', color: theme.colors.accent100}}>Hi, my name is..</Paragraph1>
+              <Paragraph1 className={headerStyles} style={{paddingBottom: '50px', paddingLeft: '1vw'}}>Hi, my name is..</Paragraph1>
             </Cell>
             <Typist cursor={{show: false}}>
             <HeadingLevel>

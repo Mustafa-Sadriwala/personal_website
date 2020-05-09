@@ -5,6 +5,7 @@ import {DarkTheme, LightTheme, BaseProvider, styled} from 'baseui';
 import {Layer} from 'baseui/layer';
 import {useStyletron} from 'baseui';
 import {Grid, Cell, BEHAVIOR, ALIGNMENT} from 'baseui/layout-grid';
+import {createTheme, createDarkTheme} from 'baseui';
 
 
 import 'react-typist/dist/Typist.css';
@@ -31,17 +32,36 @@ const THEME = {
 };
 
 
+const primitives = {
+  accent: '#F6DDC5',
+  accent50: '#FFCDB2',
+  accent100: '#FFB4A2',
+  accent200: '#F2A69F',
+  accent300: '#E5989B',
+  accent400: '#B5838D',
+  accent500: '#917681',
+  accent600: '#6D6875',
+  accent700: '#4A4754',
+}
+
+
+const lightTheme = createTheme(primitives);
+const darkTheme = createDarkTheme(primitives);
+
+
 
 function App() {
   const [theme, setTheme] = React.useState(THEME.light);
   const [toggle, setToggle] = React.useState(false);
   const [css, themeVar] = useStyletron();
-  const backgroundStyles = css({
-    backgroundColor: themeVar.colors.backgroundAccent
+  const BackgroundStyles = styled('div', ({$theme}) => {
+    return {
+      backgroundColor: $theme.colors.background
+    }
   })
   return (
-      <BaseProvider theme={theme === THEME.light ? LightTheme : DarkTheme}>
-        <div className={backgroundStyles}>
+      <BaseProvider theme={theme === THEME.light ? lightTheme : darkTheme}>
+        <BackgroundStyles>
           <Layer>
             <NavBar 
             toggleChecked={toggle} 
@@ -54,12 +74,12 @@ function App() {
             />
           </Layer>
           <Centered>
-            <Header/>
+            <Header lightTheme={theme === THEME.light ? true : false}/>
           </Centered>
           <Centered>
-            <About/>
+            <About lightTheme={theme === THEME.light ? true : false}/>
           </Centered>
-        </div>
+        </BackgroundStyles>
       </BaseProvider>
   );
 }
