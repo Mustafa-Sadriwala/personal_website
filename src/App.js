@@ -71,6 +71,7 @@ function App() {
               nextToggle = e.currentTarget.checked;
               setToggle(nextToggle);
               setTheme(theme === THEME.light ? THEME.dark : THEME.light);}}
+            lightTheme={theme === THEME.light ? true : false}
             themeName={theme === THEME.light ? 'dark mode' : 'light mode'}
             />
           </Layer>

@@ -24,16 +24,17 @@ function NavBar(props) {
     top: '0',
     left: '0',
     boxShadow: '0 5px 7px 0 rgba(0,0,0,0.3)',
-    zIndex: 6
-    //backgroundColor: theme.colors.background
+    zIndex: 6,
+    //backgroundColor: theme.colors.accent100
   });
   const {height, width} = useWindowDimensions();
+  const colorBackground = props.lightTheme ? theme.colors.accent50 : theme.colors.accent600;
 
   return (
     <React.Fragment>
         <Layer>
           <div className={containerStyles}>
-          <HeaderNavigation style={{borderBottomWidth: 0, backgroundColor: `${theme.colors.background}`}}>
+          <HeaderNavigation style={{borderBottomWidth: 0, backgroundColor: colorBackground}}>
           <StyledNavigationList $align={ALIGN.left}>
             <StyledNavigationItem>
               <H5 margin={0}>
