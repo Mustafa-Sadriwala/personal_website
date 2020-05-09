@@ -133,7 +133,7 @@ function Header(props) {
                 of recursion check out my personal website&nbsp;
                 <StyledLink href="https://mustafa-sadriwala.github.io/personal_website/">here!</StyledLink>
               </Paragraph1> */}
-                <Paragraph1>
+                <Paragraph1 style={{paddingLeft: '1vw'}}>
                   I want to help create the future.
                 </Paragraph1>
             </Cell>
