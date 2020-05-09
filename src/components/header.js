@@ -9,7 +9,6 @@ import {Layer} from 'baseui/layer';
 
 import 'react-typist/dist/Typist.css';
 import './../blob.scss'
-import profile from './../assets/DSC04973.jpg'
 
 import { Paragraph1 } from 'baseui/typography';
 
@@ -23,7 +22,7 @@ function shuffleArray(array) {
 }
 
 
-function Header(props) {
+function Header() {
     const [css, theme] = useStyletron();
     const headerStyles = css({
         display: 'inline-block', marginTop:0, marginBottom: 0, paddingTop: 0, paddingBottom:0,
@@ -31,12 +30,12 @@ function Header(props) {
     let blobColors = [theme.colors.accent700, theme.colors.accent600, theme.colors.accent500, theme.colors.accent400, theme.colors.accent300, theme.colors.accent200, theme.colors.accent100, theme.colors.accent];
     shuffleArray(blobColors)
     // medium blob near name/intro
-    // Possible spawn   top: [-30, -10]     left: [10, 30]
+    // Possible spawn   top: [-30, -10]     left: [-20, 30]
     const Blob1 = styled('div', () => {
         return {
         position: 'absolute',
         top: ((Math.random() * -20) - 10).toString() + "%",
-        left: ((Math.random() * 20) +10).toString() + "%",
+        left: ((Math.random() * 50) - 20).toString() + "%",
         fill: blobColors[0],
         animation: "move1 60s ease-in-out infinite",
         transformOrigin: "50% 50%",
@@ -99,12 +98,12 @@ function Header(props) {
     <React.Fragment>
         {/* TODO: add a profile picture and shit or at least a rectangle where a pic should go lol */}
         <div className={css({height: "100vh", width: '100%', zIndex: 5})}>
-            <div className={css({paddingTop: "150px"})}>
+            <div className={css({paddingTop: "125px"})}>
             <Grid gridGaps={[0,0,0]} gridGutters={[8,16,32]}>
             
             <Cell span={[3, 6, 8]}>
             <Cell span={[3,6,8]}>
-              <Paragraph1 className={headerStyles} style={{paddingBottom: '35px', paddingLeft: '1vw', color: theme.colors.accent100}}>Hi, my name is..</Paragraph1>
+              <Paragraph1 className={headerStyles} style={{paddingBottom: '50px', paddingLeft: '1vw', color: theme.colors.accent100}}>Hi, my name is..</Paragraph1>
             </Cell>
             <Typist cursor={{show: false}}>
             <HeadingLevel>
@@ -124,19 +123,22 @@ function Header(props) {
             </HeadingLevel>
             </Typist>
             <Cell span={[3,6,8]}>
-              <Paragraph1>
+              {/* <Paragraph1>
                 I'm a fast-learning, honors computer science senior at the University of Texas at Dallas 
                 with an affinity for software development, writing, and painting. For a brief explanation 
                 of recursion check out my personal website&nbsp;
                 <StyledLink href="https://mustafa-sadriwala.github.io/personal_website/">here!</StyledLink>
-              </Paragraph1>
+              </Paragraph1> */}
+                <Paragraph1>
+                  I write code.
+                </Paragraph1>
             </Cell>
             </Cell>
             </Grid>
             </div>
         </div>
         <div className={css({position: 'absolute', top: 0, left: 0, width: '100vw', height: '100%'})}>
-            <div className={css({position: 'relative', height: '100%', overflowX: 'hidden'})}>
+            <div className={css({position: 'relative', height: '100%', overflow: 'hidden', paddingBottom: '250px', marginBottom: '-250px'})}>
 
             {/* TODO: Make randomizing function to choose random blob, coordinates, and fill color */}
             {/* POSSIBLE    top: [-40%, 50%] left: [-20%, 75%]*/}

@@ -10,7 +10,8 @@ import {
 } from "baseui/header-navigation";
 import { StyledLink } from "baseui/link";
 import {Checkbox, STYLE_TYPE} from 'baseui/checkbox';
-import {H5} from 'baseui/typography'
+import {H5} from 'baseui/typography';
+import useWindowDimensions from './windowDimensions';
 
 
 
@@ -26,6 +27,8 @@ function NavBar(props) {
     zIndex: 6
     //backgroundColor: theme.colors.background
   });
+  const {height, width} = useWindowDimensions();
+
   return (
     <React.Fragment>
         <Layer>
@@ -39,7 +42,7 @@ function NavBar(props) {
             </StyledNavigationItem>
           </StyledNavigationList>
           <StyledNavigationList $align={ALIGN.center} />
-          <StyledNavigationList $align={ALIGN.right}>
+          {(width > 760) && (<StyledNavigationList $align={ALIGN.right}>
             <StyledNavigationItem>
               <StyledLink href="#basic-link1">
                 Tab Link One
@@ -50,7 +53,7 @@ function NavBar(props) {
                 Tab Link Two
               </StyledLink>
             </StyledNavigationItem>
-          </StyledNavigationList>
+          </StyledNavigationList>)}
           <StyledNavigationList $align={ALIGN.right} style={{'marginRight': '30px'}}>
             <StyledNavigationItem>
               <Checkbox

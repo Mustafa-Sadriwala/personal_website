@@ -11,6 +11,7 @@ import 'react-typist/dist/Typist.css';
 
 import Header from './components/header'
 import NavBar from './components/navBar';
+import About from './components/about';
 
 
 const Centered = styled('div', ({$theme}) => {
@@ -19,8 +20,8 @@ const Centered = styled('div', ({$theme}) => {
     justifyContent: 'center',
     alignItems: 'center',
     height: '100%',
-    width: '100wh',
-    backgroundColor: $theme.colors.backgroundAccent
+    width: '100vw',
+    paddingBottom: '200px',
   };
 });
 
@@ -34,25 +35,30 @@ const THEME = {
 function App() {
   const [theme, setTheme] = React.useState(THEME.light);
   const [toggle, setToggle] = React.useState(false);
-  const [css] = useStyletron();
+  const [css, themeVar] = useStyletron();
+  const backgroundStyles = css({
+    backgroundColor: themeVar.colors.backgroundAccent
+  })
   return (
       <BaseProvider theme={theme === THEME.light ? LightTheme : DarkTheme}>
-        <Layer>
-        <NavBar 
-        toggleChecked={toggle} 
-        toggleOnChange={e => {
-          let nextToggle = toggle;
-          nextToggle = e.currentTarget.checked;
-          setToggle(nextToggle);
-          setTheme(theme === THEME.light ? THEME.dark : THEME.light);}}
-        themeName={theme === THEME.light ? 'dark mode' : 'light mode'}
-      />
-        </Layer>
-        <Centered>
-        <Header theme={theme}/>
-        </Centered>
-        <div>
-          text text text
+        <div className={backgroundStyles}>
+          <Layer>
+            <NavBar 
+            toggleChecked={toggle} 
+            toggleOnChange={e => {
+              let nextToggle = toggle;
+              nextToggle = e.currentTarget.checked;
+              setToggle(nextToggle);
+              setTheme(theme === THEME.light ? THEME.dark : THEME.light);}}
+            themeName={theme === THEME.light ? 'dark mode' : 'light mode'}
+            />
+          </Layer>
+          <Centered>
+            <Header/>
+          </Centered>
+          <Centered>
+            <About/>
+          </Centered>
         </div>
       </BaseProvider>
   );
