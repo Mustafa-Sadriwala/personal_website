@@ -27,30 +27,43 @@ const overlayInner = css({
     ':hover' : {
         opacity: 0
     },
-    ':hover :after' : {
-        display: "block",
-        backgroundColor: theme.colors.background
-    }
 })
+const headerStyles = css({
+    display: 'inline-block', marginTop:0, marginBottom: 0, paddingTop: 0, paddingBottom:0,
+  });
 
 const overlayOuter = css({
     position: "relative",
+    boxShadow: "20px 20px 0 -5px" + theme.colors.backgroundAccent + ", 20px 20px 0 0" + theme.colors.accent100,
+    transition: "box-shadow ease 250ms",
+    ':hover' : {
+        boxShadow: "10px 10px 0 -5px" + theme.colors.backgroundAccent + ", 10px 10px 0 0" + theme.colors.accent100,
+    }
 })
 return (
     <React.Fragment>
-        <div style={{zIndex: 5, paddingRight: 20, height: '100%'}}>
-        <Grid gridGutters={[8,16,32]} >
-            <Cell span={[1,2,4]} skip={[1,2,4]}>
+        <div style={{zIndex: 5, paddingRight: '5vw', maxHeight: '60vh'}}>
+        <Grid gridGutters={[8,16,32]} align={ALIGNMENT.start}>
+            <Cell span={[2,2,6]} >
+            <HeadingLevel>
+            <Heading className={headerStyles}>About Me</Heading>
             <Paragraph1>
                 I'm a fast-learning, honors computer science senior at the University of Texas at Dallas 
                 with an affinity for software development, writing, and painting. For a brief explanation 
                 of recursion check out my personal website&nbsp;
                 <StyledLink href="https://mustafa-sadriwala.github.io/personal_website/">here!</StyledLink>
             </Paragraph1>
+            <Paragraph1>
+                Since being at UTD I've worked with an AI security start-up creating an Android application, 
+                interned at JP Morgan & Chase and Facebook, and helped to foster and grow the Computer Science 
+                community through the student chapter of the&nbsp;
+                <StyledLink href="https://www.acmutd.co/" target="_blank">ACM at UTD.</StyledLink>
+            </Paragraph1>
+            </HeadingLevel>
             </Cell>
-            <Cell span={[1,2,4]}>
+            <Cell skip={[0, 1, 2]} span={[2,3,4]}>
                 <div className={overlayOuter}>
-                <img src={profile} style={{width: '100%', objectFit: "contain"}} />
+                <img src={profile} style={{width: '100%', objectFit: "cover"}} />
                 <div className={overlayInner} />
                 </div>
             </Cell>

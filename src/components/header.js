@@ -100,7 +100,6 @@ function Header() {
         <div className={css({height: "100vh", width: '100%', zIndex: 5})}>
             <div className={css({paddingTop: "125px"})}>
             <Grid gridGaps={[0,0,0]} gridGutters={[8,16,32]}>
-            
             <Cell span={[3, 6, 8]}>
             <Cell span={[3,6,8]}>
               <Paragraph1 className={headerStyles} style={{paddingBottom: '50px', paddingLeft: '1vw', color: theme.colors.accent100}}>Hi, my name is..</Paragraph1>
@@ -130,7 +129,7 @@ function Header() {
                 <StyledLink href="https://mustafa-sadriwala.github.io/personal_website/">here!</StyledLink>
               </Paragraph1> */}
                 <Paragraph1>
-                  I write code.
+                  I want to help create the future.
                 </Paragraph1>
             </Cell>
             </Cell>
