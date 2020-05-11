@@ -48,3 +48,30 @@
     70%   { transform: scale(3, 1) translate(-20vw, 15vh) }
     100%  { transform: scale(1)}
 }
+
+@keyframes move6 {
+  0%    { transform: scale(1)}
+  38%   { transform: scale(.8, 1.6) translate(-10vw, 15vh)}
+  40%   { transform: scale(.8, 1.6) translate(-10vw, 15vh)}
+  68%   { transform: scale(1.5, 2) translate(-15vw, 5vh) }
+  70%   { transform: scale(1.5, 2) translate(-15vw, 5vh) }
+  100%  { transform: scale(1)}
+}
+
+@keyframes move7 {
+  0%    { transform: scale(1)}
+  38%   { transform: scale(1.2, .9) translate(10vw, 7vh)}
+  40%   { transform: scale(1.2, .9) translate(10vw, 7vh)}
+  68%   { transform: scale(3, 1) translate(-10vw, -5vh) }
+  70%   { transform: scale(3, 1) translate(-10vw, -5vh) }
+  100%  { transform: scale(1)}
+}
+
+@keyframes move8 {
+  0%    { transform: scale(1)}
+  38%   { transform: scale(1.4, .5) translate(10vw, 10vh)}
+  40%   { transform: scale(1.4, .5) translate(10vw, 10vh)}
+  68%   { transform: scale(1.2, 1.2) translate(20vw, -5vh) }
+  70%   { transform: scale(1.2, 1.2) translate(20vw, -5vh) }
+  100%  { transform: scale(1)}
+}

@@ -13,6 +13,7 @@ import 'react-typist/dist/Typist.css';
 import Header from './components/header'
 import NavBar from './components/navBar';
 import About from './components/about';
+import Blobs from './components/blobs';
 
 
 const Centered = styled('div', ({$theme}) => {
@@ -62,6 +63,7 @@ function App() {
   })
   return (
       <BaseProvider theme={theme === THEME.light ? lightTheme : darkTheme}>
+        <Blobs lightTheme={theme === THEME.light ? true : false} />
         <BackgroundStyles>
           <Layer>
             <NavBar 
