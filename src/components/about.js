@@ -36,11 +36,24 @@ const headerStyles = css({
 
 const overlayOuter = css({
     position: "relative",
-    borderRadius: '10px',
-    boxShadow: "25px 22px 0 -5px" + theme.colors.background + ", 25px 22px 0 0" + accentColor,
-    transition: "box-shadow ease 250ms",
     ':hover' : {
-        boxShadow: "15px 12px 0 -5px" + theme.colors.background + ", 15px 12px 0 0" + accentColor,
+        '::before' : {
+            transform: 'translate(10px, 8px)',
+        }
+    },
+    '::before' : {
+        content: '""',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        zIndex: -1,
+        boxSizing: 'border-box',
+        border: '5px solid ' + accentColor,
+        transform: 'translate(20px, 18px)',
+        transition: 'transform ease .2s',
+        borderRadius: '10px',
     }
 })
 return (
