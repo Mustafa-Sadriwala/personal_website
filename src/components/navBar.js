@@ -45,8 +45,8 @@ function NavBar(props) {
           <StyledNavigationList $align={ALIGN.center} />
           {(width > 760) && (<StyledNavigationList $align={ALIGN.right}>
             <StyledNavigationItem>
-              <StyledLink href="#basic-link1">
-                Tab Link One
+              <StyledLink href="#about">
+                About
               </StyledLink>
             </StyledNavigationItem>
             <StyledNavigationItem>

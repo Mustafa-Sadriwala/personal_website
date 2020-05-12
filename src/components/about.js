@@ -54,7 +54,7 @@ return (
                 I'm a fast-learning, honors computer science senior at the University of Texas at Dallas 
                 with an affinity for software development, writing, and painting. For a brief explanation 
                 of recursion check out my personal website&nbsp;
-                <StyledLink href="https://mustafa-sadriwala.github.io/personal_website/">here!</StyledLink>
+                <StyledLink href="#">here!</StyledLink>
             </Paragraph1>
             <Paragraph1>
                 Since being at UTD I've worked with an AI security start-up creating an Android application, 

@@ -24,6 +24,7 @@ const Centered = styled('div', ({$theme}) => {
     height: '100%',
     width: '100vw',
     paddingBottom: '200px',
+    scrollMarginTop: '125px',
   };
 });
 
@@ -80,7 +81,7 @@ function App() {
           <Centered>
             <Header lightTheme={theme === THEME.light ? true : false}/>
           </Centered>
-          <Centered>
+          <Centered id="about" >
             <About lightTheme={theme === THEME.light ? true : false}/>
           </Centered>
         </BackgroundStyles>

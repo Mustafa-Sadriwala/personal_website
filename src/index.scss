@@ -1,6 +1,12 @@
 html{
   min-height:100%;/* make sure it is at least as tall as the viewport */
   position:relative;
+  scroll-behavior: smooth;
+}
+@media screen and (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
 }
 body {
   margin: 0;
