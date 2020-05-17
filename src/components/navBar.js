@@ -50,8 +50,8 @@ function NavBar(props) {
               </StyledLink>
             </StyledNavigationItem>
             <StyledNavigationItem>
-              <StyledLink href="#basic-link2">
-                Tab Link Two
+              <StyledLink href="#work">
+                Experience
               </StyledLink>
             </StyledNavigationItem>
           </StyledNavigationList>)}

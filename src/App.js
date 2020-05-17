@@ -14,6 +14,7 @@ import Header from './components/header'
 import NavBar from './components/navBar';
 import About from './components/about';
 import Blobs from './components/blobs';
+import Work from './components/work';
 
 
 const Centered = styled('div', ({$theme}) => {
@@ -83,6 +84,9 @@ function App() {
           </Centered>
           <Centered id="about" >
             <About lightTheme={theme === THEME.light ? true : false}/>
+          </Centered>
+          <Centered id="work">
+            <Work lightTheme={theme === THEME.light ? true : false}/>
           </Centered>
         </BackgroundStyles>
       </BaseProvider>
