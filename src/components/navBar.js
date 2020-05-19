@@ -37,9 +37,11 @@ function NavBar(props) {
           <HeaderNavigation style={{borderBottomWidth: 0, backgroundColor: colorBackground}}>
           <StyledNavigationList $align={ALIGN.left}>
             <StyledNavigationItem>
+            <a href="#" style={{textDecoration: 'none'}}>
               <H5 margin={0}>
                 Mustafa Sadriwala
               </H5>
+              </a>
             </StyledNavigationItem>
           </StyledNavigationList>
           <StyledNavigationList $align={ALIGN.center} />
