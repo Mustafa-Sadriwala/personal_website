@@ -8,6 +8,7 @@ import {Layer as div} from 'baseui/layer';
 import {StatefulMenu} from 'baseui/menu';
 import {Card, StyledContents, StyledBody} from 'baseui/card';
 import { Paragraph1, H1, H2, H5, H6, H4 } from 'baseui/typography';
+import { Tag, VARIANT} from 'baseui/tag';
 
 import blob from './../assets/DSC04973.jpg';
 
@@ -34,7 +35,7 @@ const CARD_PROJECTS = {
         position: 'Software Engineering Intern',
         date: 'May - Aug 2020',
         bullets: ['Working on the Messenger Kids Experience Team!'],
-        technologies: ['React', 'React Native', 'php', '']
+        technologies: ['React', 'React Native', 'php', 'Android Studio']
     },
     'JPMorgan Chase': {
         title: 'JPMorgan Chase & Co.',
@@ -240,7 +241,13 @@ function Work(props) {
                         </StyledList>
                     </StyledBody>
                     <StyledContents>
-                        {CARD_PROJECTS[menuItemChosen].technologies}
+                        {CARD_PROJECTS[menuItemChosen].technologies ? (
+                            CARD_PROJECTS[menuItemChosen].technologies.map((tech) => (
+                                <Tag closeable={false} kind='accent' variant={VARIANT.light}>
+                                    {tech}
+                                </Tag>
+                            ))
+                        ) : (CARD_PROJECTS[menuItemChosen].technologies)}
                     </StyledContents>
                     </Card>
                 </Cell>
