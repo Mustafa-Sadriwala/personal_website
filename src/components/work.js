@@ -18,21 +18,25 @@ const SOFTWARES = ['React', 'Git', 'LaTeX', 'MySQL', 'Firebase', 'Android Studio
 
 const FRAMEWORKS = ['Spring', 'React Native', 'Next.js', 'Express.js']
 const MENU_PROJECTS = [
-    {label: 'Item One'},
-    {label: 'Item Two'},
-    {label: 'Item Three', disabled: true},
-    {label: 'Item Four', disabled: true},
-    {label: 'Item Five'},
-    {label: 'Item Six'},
-    {label: 'Item Seven'},
-    {label: 'Item Eight'},
-    {label: 'Item Nine'},
-    {label: 'Item Ten'},
-    {label: 'Item Eleven'},
-    {label: 'Item Twelve'},
+    {label: 'Facebook'},
+    {label: 'JPMorgan Chase'},
+    {label: 'Plano Intelligence'},
+    {label: 'Kellermann Foundation'},
+    {label: 'Kumon'},
+    {label: 'NanoSpinCompute Lab'},
+    {label: 'Advanced Polymer Research Lab'},
+    {label: 'Multiscale Simulation Lab'},
   ];
 const CARD_PROJECTS = {
-    'Item One': {
+    'Facebook': {
+        title: 'Facebook',
+        location: 'Menlo Park, CA (remote)',
+        position: 'Software Engineering Intern',
+        date: 'May - Aug 2020',
+        bullets: ['Working on the Messenger Kids Experience Team!'],
+        technologies: ['React', 'React Native', 'php', '']
+    },
+    'JPMorgan Chase': {
         title: 'JPMorgan Chase & Co.',
         location: 'Plano, TX',
         position: 'Software Engineering Intern',
@@ -44,18 +48,68 @@ const CARD_PROJECTS = {
         body: 'Worked as a Full-Stack Developer to deliver an end-to-end web application to create test data to post to Kafka topics \n \
         • Developed data generation page and input validation techniques in React front-end and scheduled data creation, random data generation, and REST API in Java back-end. \
         • Helped with connecting several endpoints and internal data models and in architecting user workflow and application functionality. Also worked with authentication protocols to enable deployment to internal cloud environment.',
-        technologies: ['React', 'JavaScript']
+        technologies: ['React', 'JavaScript', 'HTML', 'CSS/SCSS', 'Spring', 'Java', 'REST API']
     },
-    'Item Two': {
-        body: 'blah blah blah\n',
-        technologies: ['test1', 'test2', 'test3', 'test4']
+    'Plano Intelligence': {
+        title: 'Plano Intelligence Inc.',
+        location: 'Plano, TX',
+        position: 'Front-end Developer',
+        date: 'May – Sep 2018',
+        bullets: ['Created an Android app for threat detection. Focused on front-end decisions, troubleshooting, and development.',
+        'Developed and tested app with Android Studio and Java, enabled and connected notification database, and delivered real-time WebSocket connectivity.'],
+        body: 'Created an Android app for threat detection. Focused on front-end decisions, troubleshooting, and development.\nDeveloped and tested app with Android Studio and Java, enabled and connected notification database, and delivered real-time WebSocket connectivity.',
+        technologies: ['Android Studio', 'Java', 'WebSocket']
+    },
+    'Kellermann Foundation': {
+        title: 'Kellermann Foundation',
+        location: 'UTD',
+        position: 'Project Manager',
+        date: 'Jan - May 2018',
+        bullets: ['Worked with the Kellermann Foundation through the Engineering Projects in Community Service (EPICS) program at UTD.',
+        'Advised technicians in Uganda on how to integrate their local database to a newly developed government database framework.',
+        'Analyzed Java and SQL source code and presented final report on findings.'],
+    },
+    'Kumon': {
+        title: 'Kumon Math and Reading Center',
+        location: 'Bedford, TX',
+        position: 'Associate/Tutor',
+        date: 'May 2016 – May 2017',
+        bullets: ['Taught children from K-10th grade in Math and English. Graded homework and created specialized lesson plans for each student.',
+        'Managed busy storefront with 30-45 students and occasional parents.'],
+        body: 'Taught children from K-10th grade in Math and English. Graded homework and created specialized lesson plans for each student.',
+    },
+    'NanoSpinCompute Lab': {
+        title: 'NanoSpinCompute Lab',
+        location: 'UTD',
+        position: 'Undergraduate Researcher',
+        date: 'Aug 2018 – Feb 2020',
+        body: 'Wrote a report on the usability and logical techniques of implementing Threshold Logic in 3D perpendicular Nanomagnetic Logic circuits.'
+    },
+    'Advanced Polymer Research Lab': {
+        title: 'Advanced Polymer Research Lab',
+        location: 'UTD',
+        position: 'Undergraduate Researcher',
+        date: 'Aug 2017 – May 2018',
+        body: 'Researched correlation between the glass transition temperature of shape memory polymers and their post-cure time through Dynamic Mechanical Analysis (DMA). Used Matlab for data analysis and visualization.',
+        technologies: ['Matlab', 'Bash']
+    },
+    'Multiscale Simulation Lab': {
+        title: 'Multiscale Simulation Lab',
+        location: 'UTD',
+        position: 'Clark Summer Researcher',
+        date: 'Jun - Aug 2017',
+        body: 'Modeled the behavior of MnO for more efficient battery material using CTMEAM. Created Bash scripts to automate simulation and testing. Used Matlab for analysis and LaTeX to write final report.',
+        technologies: ['Matlab', 'LaTeX', 'Bash']
     }
+
 };
 function Work(props) {
     const [technologies, setTechnologies] = useState([]);
-    const [menuItemChosen, setMenuItemChosen] = useState('Item One');
+    const [menuItemChosen, setMenuItemChosen] = useState('JPMorgan Chase');
     const [css, theme] = useStyletron();
-    const accentColor = (props.lightTheme ? theme.colors.accent600: theme.colors.accent50)
+    const accentColorInverse = (props.lightTheme ? theme.colors.accent600: theme.colors.accent50)
+    const accentColor = (props.lightTheme ? theme.colors.accent50: theme.colors.accent600)
+    const selectedMenuItemColor = (props.lightTheme ? theme.colors.contentPrimary: theme.colors.accent50)
 
     const StyledCode = styled('code', ({$theme}) => {
         return {
@@ -74,7 +128,7 @@ function Work(props) {
                 position: 'absolute',
                 left: '-20px',
                 content: "'•'",
-                color: accentColor,
+                color: accentColorInverse,
             }
         }
     })
@@ -99,35 +153,55 @@ function Work(props) {
     return(
         <React.Fragment>
             <div style={{zIndex: 5, color: `${theme.colors.contentPrimary}`}}>
-                <Grid gridGutters={0} gridMargins={[25,50,100]}>
-                <Cell span={[4, 8, 12]}>
-                <HeadingLevel>
-                <Heading className={headerStyles}>Work Experience</Heading>
-                </HeadingLevel>
-                </Cell>
-                    <Cell style={{paddingRight: 0, margin: 0,}} span={[1, 2, 4]}>
+                <Grid  gridMargins={[25,50,100]}>
+                    <Cell span={[4, 8, 12]}>
+                    <HeadingLevel>
+                    <Heading className={headerStyles}>Work Experience</Heading>
+                    </HeadingLevel>
+                    </Cell>
+                    <Cell style={{paddingRight: 0, margin: 0, display: 'flex', justifyContent: 'flex-end'}} span={[1, 2, 4]}>
                     <StatefulMenu
                         items={MENU_PROJECTS}
-                        onItemSelect={(item) => {console.log(item); setMenuItemChosen(item.item.label)}}
+                        onItemSelect={(item) => {setMenuItemChosen(item.item.label);}}
                         overrides={{
                         Option: {
                             props: {
                             getItemLabel: item => item.label,
                             },
+                            style: (props) => {
+                                if(props.children.props.children == menuItemChosen) {
+                                    return {
+                                        backgroundColor: accentColor,
+                                        color:  selectedMenuItemColor,
+                                        zIndex: -1
+                                    }
+                                }
+                            },
                         },
                         List: {
-                            style: ({ $theme }) => {
-                              return {
-                                height: "60vh"
-                              };
-                            }
+                            props: {
+                                $isFocusVisible: false
+                            },
+                            style: (props) => {
+                                return {
+                                height: "20vh",
+                                width: '20vw',
+                                boxShadow: 'none',
+                                backgroundColor: accentColor,
+                                backgroundColor: accentColor + "33",
+                                overflow: 'hidden',
+                                ':hover' : {
+                                    overflowY: 'scroll'
+                                }
+                                };
+                            },
                           }
                         }}
                     />
                     </Cell>
                     <Cell span={[3,6,8]} style={{paddingRight: 0, margin: 0}}>
-                    <Card style={{width: '55vw', height: '62.5vh', overflowY: 'auto', boxSizing: 'border-box'}}>
-                    <Grid gridGutters={0} gridMargins={0} gridGaps={0}>
+                    <Card style={{width: '55vw', height: '61vh', overflowY: 'auto', boxShadow: 'rgba(0, 0, 0, 0.16) 0px 4px 16px'}}>
+                    <Grid gridGutters={0} gridMargins={[0,0,24]} gridGaps={0}>
                         <Cell span={[3,6,8]}>
                             <H5 style={{marginBottom: 0, marginTop: 0}}>
                             {CARD_PROJECTS[menuItemChosen].title}
@@ -152,16 +226,18 @@ function Work(props) {
                         </Cell>
                     </Grid>
                     <StyledBody>
+                        <StyledList>
                         { CARD_PROJECTS[menuItemChosen].bullets ? (
-                            <StyledList>
-                            {CARD_PROJECTS[menuItemChosen].bullets.map((bullet) => (
+                            CARD_PROJECTS[menuItemChosen].bullets.map((bullet) => (
                                 <StyledListItem>
                                     {bullet}
                                 </StyledListItem>
-                            ))}
-                            </StyledList>
-                        ) : (CARD_PROJECTS[menuItemChosen].body)
+                            ))
+                        ) : (
+                                CARD_PROJECTS[menuItemChosen].body
+                            )
                         }
+                        </StyledList>
                     </StyledBody>
                     <StyledContents>
                         {CARD_PROJECTS[menuItemChosen].technologies}
