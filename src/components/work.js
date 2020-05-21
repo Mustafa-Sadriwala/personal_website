@@ -10,9 +10,9 @@ import {Card, StyledContents, StyledBody} from 'baseui/card';
 import { Paragraph1, H1, H2, H5, H6, H4 } from 'baseui/typography';
 import { Tag, VARIANT} from 'baseui/tag';
 
-import blob from './../assets/DSC04973.jpg';
 import CARD_PROJECTS from './../assets/project-metadata.json';
 import MENU_PROJECTS from './../assets/project-names.json';
+import SectionTitle from './sectionTitle';
 
 
 // const LANGUAGES = ['Java', 'JavaScript', 'Python', 'HTML', 'CSS/SCSS', 'C/C++', 'Bash', 'MIPS'];
@@ -63,19 +63,13 @@ function Work(props) {
         marginBlockStart: '0',
         marginBlockEnd: '0'
     })
-    const headerStyles = css({
-        display: 'inline-block', marginTop:0, marginBottom: '20px', paddingTop: 0, paddingBottom:0,
-      });
+
     return(
         <React.Fragment>
-            <div style={{zIndex: 5, color: `${theme.colors.contentPrimary}`}}>
-                <Grid  gridMargins={[25,50,100]}>
-                    <Cell span={[4, 8, 12]}>
-                    <HeadingLevel>
-                    <Heading className={headerStyles}>Work Experience</Heading>
-                    </HeadingLevel>
-                    </Cell>
-                    <Cell style={{paddingRight: 0, margin: 0, display: 'flex', justifyContent: 'flex-end'}} span={[1, 2, 4]}>
+            <div style={{zIndex: 5, color: `${theme.colors.contentPrimary}`, paddingLeft: 0, marginLeft: 0, width: '100%'}}>
+                <SectionTitle gridGaps={18}>Work Experience</SectionTitle>
+                <Grid gridMargins={[25,50,100]}>
+                    <Cell span={[1, 2, 4]}>
                     <StatefulMenu
                         items={MENU_PROJECTS}
                         onItemSelect={(item) => {setMenuItemChosen(item.item.label);}}

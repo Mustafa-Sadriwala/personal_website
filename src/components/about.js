@@ -8,6 +8,7 @@ import {Layer} from 'baseui/layer';
 import { Paragraph1 } from 'baseui/typography';
 
 import profile from './../assets/DSC04973.jpg'
+import SectionTitle from './sectionTitle';
 
 
 function About(props){
@@ -30,9 +31,6 @@ const overlayInner = css({
         opacity: 0
     },
 })
-const headerStyles = css({
-    display: 'inline-block', marginTop:0, marginBottom: 0, paddingTop: 0, paddingBottom:0,
-  });
 
 const overlayOuter = css({
     position: "relative",
@@ -59,10 +57,10 @@ const overlayOuter = css({
 return (
     <React.Fragment>
         <div style={{zIndex: 5, paddingRight: '5vw', maxHeight: '60vh'}}>
+        <SectionTitle>About Me</SectionTitle>
         <Grid gridGutters={[8,16,32]} align={ALIGNMENT.start}>
             <Cell span={[2,2,6]} >
             <HeadingLevel>
-            <Heading className={headerStyles}>About Me</Heading>
             <Paragraph1>
                 I'm a fast-learning, honors computer science senior at the University of Texas at Dallas 
                 with an affinity for software development, writing, and painting. For a brief explanation 
