@@ -15,11 +15,9 @@ import CARD_PROJECTS from './../assets/project-metadata.json';
 import MENU_PROJECTS from './../assets/project-names.json';
 
 
-const LANGUAGES = ['Java', 'JavaScript', 'Python', 'HTML', 'CSS/SCSS', 'C/C++', 'Bash', 'MIPS'];
-
-const SOFTWARES = ['React', 'Git', 'LaTeX', 'MySQL', 'Firebase', 'Android Studio', 'Strapi', 'Matlab', 'MS Office'];
-
-const FRAMEWORKS = ['Spring', 'React Native', 'Next.js', 'Express.js']
+// const LANGUAGES = ['Java', 'JavaScript', 'Python', 'HTML', 'CSS/SCSS', 'C/C++', 'Bash', 'MIPS'];
+// const SOFTWARES = ['React', 'Git', 'LaTeX', 'MySQL', 'Firebase', 'Android Studio', 'Strapi', 'Matlab', 'MS Office'];
+// const FRAMEWORKS = ['Spring', 'React Native', 'Next.js', 'Express.js'];
 
 function Work(props) {
     const [technologies, setTechnologies] = useState([]);
