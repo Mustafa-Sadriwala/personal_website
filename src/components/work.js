@@ -20,18 +20,18 @@ import MENU_PROJECTS from './../assets/project-names.json';
 // const FRAMEWORKS = ['Spring', 'React Native', 'Next.js', 'Express.js'];
 
 function Work(props) {
-    const [technologies, setTechnologies] = useState([]);
+    //const [technologies, setTechnologies] = useState([]);
     const [menuItemChosen, setMenuItemChosen] = useState('JPMorgan Chase');
     const [css, theme] = useStyletron();
     const accentColorInverse = (props.lightTheme ? theme.colors.accent600: theme.colors.accent50)
     const accentColor = (props.lightTheme ? theme.colors.accent50: theme.colors.accent600)
     const selectedMenuItemColor = (props.lightTheme ? theme.colors.contentPrimary: theme.colors.accent50)
 
-    const StyledCode = styled('code', ({$theme}) => {
-        return {
-            paddingRight: '10px',
-        }
-    })
+    // const StyledCode = styled('code', ({$theme}) => {
+    //     return {
+    //         paddingRight: '10px',
+    //     }
+    // })
     const StyledListItem = styled('li', ({$theme}) => {
         return {
             position: 'relative',
