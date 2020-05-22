@@ -88,7 +88,7 @@ function App() {
           <Centered id="work">
             <Work lightTheme={theme === THEME.light ? true : false}/>
           </Centered>
-          <Centered id="projecs">
+          <Centered id="projects">
             <Projects lightTheme={theme === THEME.light ? true : false}/>
           </Centered>
         </BackgroundStyles>

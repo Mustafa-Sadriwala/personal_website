@@ -56,6 +56,11 @@ function NavBar(props) {
                 Experience
               </StyledLink>
             </StyledNavigationItem>
+            <StyledNavigationItem>
+              <StyledLink href="#projects">
+                Projects
+              </StyledLink>
+            </StyledNavigationItem>
           </StyledNavigationList>)}
           <StyledNavigationList $align={ALIGN.right} style={{'marginRight': '30px'}}>
             <StyledNavigationItem>

@@ -10,8 +10,8 @@ import {Card, StyledContents, StyledBody} from 'baseui/card';
 import { Paragraph1, H1, H2, H5, H6, H4 } from 'baseui/typography';
 import { Tag, VARIANT} from 'baseui/tag';
 
-import CARD_PROJECTS from './../assets/project-metadata.json';
-import MENU_PROJECTS from './../assets/project-names.json';
+import CARD_WORK from './../assets/work-metadata.json';
+import MENU_WORK from './../assets/work-names.json';
 import SectionTitle from './sectionTitle';
 
 
@@ -71,7 +71,7 @@ function Work(props) {
                 <Grid gridMargins={[25,50,100]}>
                     <Cell span={[1, 2, 4]}>
                     <StatefulMenu
-                        items={MENU_PROJECTS}
+                        items={MENU_WORK}
                         onItemSelect={(item) => {setMenuItemChosen(item.item.label);}}
                         overrides={{
                         Option: {
@@ -114,49 +114,49 @@ function Work(props) {
                     <Grid gridGutters={0} gridMargins={[0,0,24]} gridGaps={0}>
                         <Cell span={[3,6,8]}>
                             <H5 style={{marginBottom: 0, marginTop: 0}}>
-                            {CARD_PROJECTS[menuItemChosen].title}
+                            {CARD_WORK[menuItemChosen].title}
                             </H5>
                             <H6 style={{marginTop: 0, marginBottom: 0}}>
                             <em>
-                            {CARD_PROJECTS[menuItemChosen].position}
+                            {CARD_WORK[menuItemChosen].position}
                             </em>
                             </H6>
                         </Cell>
                         <Cell span={[1,2,4]}>
                             <div style={{display: 'flex', justifyContent: 'flex-end'}}>
                             <Paragraph1 className={paragraphStyles} >
-                            {CARD_PROJECTS[menuItemChosen].date}
+                            {CARD_WORK[menuItemChosen].date}
                             </Paragraph1>
                             </div>
                             <div style={{display: 'flex', justifyContent: 'flex-end'}}>
                             <Paragraph1 className={paragraphStyles}>
-                            {CARD_PROJECTS[menuItemChosen].location}
+                            {CARD_WORK[menuItemChosen].location}
                             </Paragraph1>
                             </div>
                         </Cell>
                     </Grid>
                     <StyledBody>
                         <StyledList>
-                        { CARD_PROJECTS[menuItemChosen].bullets ? (
-                            CARD_PROJECTS[menuItemChosen].bullets.map((bullet) => (
+                        { CARD_WORK[menuItemChosen].bullets ? (
+                            CARD_WORK[menuItemChosen].bullets.map((bullet) => (
                                 <StyledListItem>
                                     {bullet}
                                 </StyledListItem>
                             ))
                         ) : (
-                                CARD_PROJECTS[menuItemChosen].body
+                                CARD_WORK[menuItemChosen].body
                             )
                         }
                         </StyledList>
                     </StyledBody>
                     <StyledContents>
-                        {CARD_PROJECTS[menuItemChosen].technologies ? (
-                            CARD_PROJECTS[menuItemChosen].technologies.map((tech) => (
+                        {CARD_WORK[menuItemChosen].technologies ? (
+                            CARD_WORK[menuItemChosen].technologies.map((tech) => (
                                 <Tag closeable={false} kind='accent' variant={VARIANT.light}>
                                     {tech}
                                 </Tag>
                             ))
-                        ) : (CARD_PROJECTS[menuItemChosen].technologies)}
+                        ) : (CARD_WORK[menuItemChosen].technologies)}
                     </StyledContents>
                     </Card>
                 </Cell>
