@@ -1,0 +1,23 @@
+[
+    {
+        "featured": true,
+        "name": "projectName",
+        "position": "back-end developer",
+        "date": "May 2019",
+        "organization": "Comet Marketing",
+        "description": "Created and maintain Comet Marketing website from scratch with one peer using React, HTML, and CSS for the front-end and Strapi and MongoDB for the back-end. Deployed back-end on Heroku for simple content management and deployed front-end at utdcometmarketing.com.",
+        "link": "utdcometmarketing.com",
+        "github": "https://mustafa-sadriwala.github.io/personal_website/",
+        "img": "src/assets/DSC04973.jpg",
+        "academic": true,
+        "tags": ["React", "Artifical Intelligence", "Industry", "Academic"]
+    },
+    {
+        "featured": false,
+        "name": "project2"
+    },
+    {
+        "featured": true,
+        "name": "project3"
+    }
+]
