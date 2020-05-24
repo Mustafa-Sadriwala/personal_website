@@ -9,9 +9,10 @@
         "description": "Created a personal website from scratch using React, HTML, CSS and Node.js. Utilized Uber's Base-Web UI framework and Styletron. Hosted the website on Github pages",
         "link": "https://mustafa-sadriwala.github.io/personal_website/",
         "github": "https://github.com/Mustafa-Sadriwala/personal_website/",
-        "img": "src/assets/DSC04973.jpg",
+        "thumbnail": "https://cdn.worldvectorlogo.com/logos/react.svg",
+        "img": "https://raw.githubusercontent.com/Mustafa-Sadriwala/personal_website/master/src/assets/DSC04973.jpg",
         "academic": false,
-        "tags": ["React", "JavaScript", "HTML", "CSS", "Node.js"]
+        "tags": ["React", "JavaScript", "HTML", "CSS"]
     },
     {
         "featured": true,
@@ -23,9 +24,10 @@
         "endDate": "present",
         "description": "Created and maintain Comet Marketing website from scratch with one peer using React, HTML, and CSS for the front-end and Strapi and MongoDB for the back-end. Deployed back-end on Heroku for simple content management and deployed front-end on Digital Ocean.",
         "link": "http://utdcometmarketing.com/",
+        "thumbnail": "https://cdn.worldvectorlogo.com/logos/react.svg",
         "github": "https://github.com/comet-marketing/cometmarketing",
         "academic": false,
-        "tags": ["React", "JavaScript", "CSS", "HTML", "Node.js"]
+        "tags": ["React", "JavaScript", "CSS", "HTML", "Next.js"]
     },
     {
         "featured": false,
@@ -37,6 +39,7 @@
         "endDate": "2019-02-20",
         "description": "Developed RCPT, a mobile app to automatically categorize and analyze receipts to track finances and help college students budget. Used JavaScript with NodeJS to develop sorting algorithms for times and categories. Implemented a microservices architecture by deploying on Heroku and connecting with other components using REST API.",
         "github": "https://github.com/Mustafa-Sadriwala/rcpt-visualizer",
+        "thumbnail": "https://cdn.worldvectorlogo.com/logos/javascript.svg",
         "academic": false,
         "tags": ["React-Native", "JavaScript", "Node.js", "Heroku"]
     },
@@ -50,6 +53,7 @@
         "endDate": "2018-10-19",
         "description": "Created SwearBot, an electronic swear jar that detects nearby swears and then donates to a chosen charity. Built using HTML and CSS for the front-end and Python, a mic, and a Raspberry Pi for the back-end.",
         "github": "https://github.com/Mustafa-Sadriwala/Swear-Jar-Front-End",
+        "thumbnail": "https://cdn.worldvectorlogo.com/logos/html-5.svg",
         "academic": false,
         "tags": ["HTML", "CSS", "Python", "Raspberry Pi"]
     },
@@ -63,6 +67,7 @@
         "endDate": "2018-04-23",
         "description": "Created Green Raccoon, a cross-platform app implemented with React-Native that uses the Google Computer Vision API to detect whether an object is recyclable.",
         "github": "https://github.com/Mustafa-Sadriwala/greenraccoon",
+        "thumbnail": "https://cdn.worldvectorlogo.com/logos/react.svg",
         "academic": false,
         "tags": ["React-Native", "JavaScript"]
     }
