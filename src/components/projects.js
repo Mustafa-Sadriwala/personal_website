@@ -45,6 +45,7 @@ export default function Projects(props) {
         position: "relative",
         transition: 'ease .2s',
         paddingTop: '15px',
+        cursor: "pointer",
         ':focus' : {
             outline: "none !important"
         },
@@ -79,6 +80,15 @@ export default function Projects(props) {
         }
     }
     });
+
+    const IconWrapper = styled('div', ({$theme}) => {
+        return {
+            fill: props.lightTheme ? "#000" : "#fff",
+            ':hover' : {
+                fill: props.lightTheme ? theme.colors.accent500 : theme.colors.accent100
+            }, 
+        }
+    })
 
     return (
         <React.Fragment>
@@ -118,13 +128,17 @@ export default function Projects(props) {
                                 {project.github &&
                                     <div style={{display: 'inline-block', marginRight: '5px'}}>
                                         <a style={{textDecoration: 'none'}} href={project.github} target="_blank" onClick={(e) => {e.stopPropagation()}}>
-                                        <GithubIcon style={{fill: props.lightTheme ? "#000" : "#fff", height:'20px', width:'20px', cursor: "pointer"}}/>
+                                        <IconWrapper>
+                                            <GithubIcon style={{height:'20px', width:'20px'}}/>
+                                        </IconWrapper>
                                         </a>
                                     </div>}
                                 {project.link && 
                                     <div  style={{display: 'inline-block'}}>
                                         <a style={{textDecoration: 'none'}} href={project.link} target="_blank" onClick={(e) => {e.stopPropagation()}}>
-                                        <LinkIcon style={{fill: props.lightTheme ? "#000" : "#fff", height:'20px', width:'20px', cursor: "pointer"}}/>
+                                        <IconWrapper>
+                                        <LinkIcon style={{height:'20px', width:'20px'}}/>
+                                        </IconWrapper>
                                         </a>
                                     </div>}
                                 </Cell>
