@@ -8,7 +8,7 @@ import { StyledLink } from "baseui/link";
 import {Layer as div} from 'baseui/layer';
 import {StatefulMenu} from 'baseui/menu';
 import {Card, StyledContents, StyledBody} from 'baseui/card';
-import { Paragraph1, Paragraph2, H1, H2, H5, H6, H4, ParagraphSmall } from 'baseui/typography';
+import { Paragraph1, Paragraph2, H1, H2, H5, H6, H4, ParagraphSmall, H3 } from 'baseui/typography';
 import { Tag, VARIANT} from 'baseui/tag';
 import {FlexGrid, FlexGridItem} from 'baseui/flex-grid';
 
@@ -69,9 +69,9 @@ export default function Modal({isShowing, hide, project, lightTheme}) {
                 <SelectedDiv>
                         <Grid gridMargins={[6,12,24]} gridGaps={0} gridGutters={0}>
                         <Cell span={[3,7,9]}>
-                            <H5 style={{marginTop: 0, marginBottom: 0}}>
+                            <H3 style={{marginTop: 0, marginBottom: 0}}>
                                 {project.name}
-                            </H5>
+                            </H3>
                         </Cell>
                         <Cell span={[1,1,3]} align={ALIGNMENT.start}>
                             <Paragraph1 style={{marginTop: 0, marginBottom: 0}}>
@@ -119,15 +119,6 @@ export default function Modal({isShowing, hide, project, lightTheme}) {
                             {project.tags.map((tag, index) => (
                                 <Tag closeable={false}
                                 index={index}
-                                overrides={{
-                                    Text: {
-                                      style: () => {
-                                        return {
-                                          fontSize: ".8em",
-                                        };
-                                      }
-                                    }
-                                  }}
                                 >{tag}</Tag>
                             ))}
                         </Cell>
