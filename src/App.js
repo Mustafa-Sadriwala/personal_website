@@ -54,14 +54,14 @@ const lightTheme = createTheme(primitives, {
     buttonSecondaryHover: primitives.accent200,
     buttonSecondaryActive: primitives.accent300,
 
-    buttonTertiaryHover: primitives.accent200,
-    buttonTertiaryActive: primitives.accent500,
+    buttonTertiaryHover: primitives.accent50,
+    buttonTertiaryActive: primitives.accent100,
   }
 });
 const darkTheme = createDarkTheme(primitives, {
   colors: {
-    buttonTertiaryHover: primitives.accent500,
-    buttonTertiaryActive: primitives.accent700
+    buttonTertiaryHover: primitives.accent600,
+    buttonTertiaryActive: primitives.accent500
   }
 });
 
