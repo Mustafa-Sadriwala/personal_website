@@ -10,10 +10,12 @@ import {Card, StyledContents, StyledBody} from 'baseui/card';
 import { Paragraph1, Paragraph2, H1, H2, H5, H6, H4, ParagraphSmall } from 'baseui/typography';
 import { Tag, VARIANT} from 'baseui/tag';
 import {FlexGrid, FlexGridItem} from 'baseui/flex-grid';
+import {Button, SHAPE, KIND} from 'baseui/button';
+
 
 
 import useModal from './useModal';
-import Modal from './modal';
+import Modal from './projectModal';
 import SectionTitle from './sectionTitle';
 
 
@@ -23,13 +25,32 @@ import {ReactComponent as GithubIcon} from './../assets/github.svg';
 import {ReactComponent as LinkIcon} from './../assets/iconfinder_link5_216660.svg'
 import { withStyle } from 'styletron-react';
 
+function filterProjects(filter, allCardProjects, cardProjects, setCardProjects) {
+    let newCardProjects = cardProjects;
+    if(filter === 'all') {
+        newCardProjects = allCardProjects;
+    }
+    else if( filter === 'featured') {
+        newCardProjects = cardProjects.filter((project) => project.featured);
+    }
+    else if(filter === 'academic') {
+        newCardProjects = cardProjects.filter((project) => project.academic);
+    }
+    else if(filter ==='non-academic') {
+        newCardProjects = cardProjects.filter((project) => !project.academic);
+    }
+    setCardProjects(newCardProjects);
+}
+
 
 export default function Projects(props) {
     const [css, theme] = useStyletron();
-    const [cardProjects, setCardProjects] = useState(CARD_PROJECTS);
+    const [cardProjects, setCardProjects] = useState(CARD_PROJECTS.filter(project => project.featured));
     const [selectedProjectIndex, setSelectedProjectIndex] = useState(-1);
-    const [selectedProject, setSelectedProject] = useState('');
     const {isShowing, toggle} = useModal();
+    const [showFeatured, setShowFeatured] = useState(true);
+
+    
 
     const accentColor = (props.lightTheme ? theme.colors.accent50 : theme.colors.accent600)
     const hoverAccent = (props.lightTheme ? theme.colors.accent100 : theme.colors.accent500)
@@ -150,13 +171,6 @@ export default function Projects(props) {
                             </div>
                         </Cell>
                     </Grid>
-                    {/* <Grid gridMargins={[6,12,24]} gridGaps={0} gridGutters={0}>
-                        <Cell span={[4,8,12]}>
-                            <Paragraph1 style={{marginTop: 0, marginBottom: 0}}>
-                                <em>{project.organization ? (project.organization) : (<div>&nbsp;</div>)}</em>
-                            </Paragraph1>
-                        </Cell>
-                    </Grid> */}
                     <Grid gridMargins={[6,12,24]} gridGaps={0} gridGutters={0}>
                         <Cell span={[4,8,12]}>
                             <ParagraphSmall style={{marginTop: 10, marginBottom: 0}}>
@@ -195,6 +209,18 @@ export default function Projects(props) {
             ))
             }
             </FlexGrid>
+            <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '50px'}}>
+                {showFeatured ? 
+                (<Button kind={KIND.tertiary} shape={SHAPE.pill} 
+                onClick={() => {setShowFeatured(false); filterProjects('all', CARD_PROJECTS, cardProjects, setCardProjects);}}>
+                    Show All
+                </Button>) : 
+                (<Button kind={KIND.tertiary} shape={SHAPE.pill} 
+                onClick={() => {setShowFeatured(true); filterProjects('featured', CARD_PROJECTS, cardProjects, setCardProjects);}}>
+                    Hide
+                </Button>)
+                }
+            </div>
             </div>
         </React.Fragment>
     );

@@ -49,8 +49,22 @@ const primitives = {
 }
 
 
-const lightTheme = createTheme(primitives);
-const darkTheme = createDarkTheme(primitives);
+const lightTheme = createTheme(primitives, {
+  colors: {
+    // buttonPrimaryFill: primitives.accent,
+    // buttonPrimaryHover: primitives.accent,
+    buttonSecondaryFill: primitives.accent50,
+    buttonSecondaryHover: primitives.accent100,
+    buttonSecondaryActive: primitives.accent300,
+
+    buttonTertiaryHover: primitives.accent,
+  }
+});
+const darkTheme = createDarkTheme(primitives, {
+  colors: {
+    buttonTertiaryHover: primitives.accent700,
+  }
+});
 
 
 
@@ -62,6 +76,7 @@ function App() {
     return {
       backgroundColor: $theme.colors.background,
       overflowX: 'hidden',
+      color: $theme.colors.button
     }
   })
   return (
