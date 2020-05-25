@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {useStyletron} from 'baseui';
-import {Button} from 'baseui/button';
 import {Layer} from 'baseui/layer';
 import {
   HeaderNavigation,
@@ -27,7 +26,7 @@ function NavBar(props) {
     zIndex: 6,
     //backgroundColor: theme.colors.accent100
   });
-  const {height, width} = useWindowDimensions();
+  const {width} = useWindowDimensions();
   const colorBackground = props.lightTheme ? theme.colors.accent50 : theme.colors.accent600;
 
   return (

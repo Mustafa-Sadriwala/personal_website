@@ -1,10 +1,7 @@
 import * as React from 'react';
-import {useStyletron, styled} from 'baseui';
-import {Grid, Cell, BEHAVIOR, ALIGNMENT} from 'baseui/layout-grid';
-import {Heading, HeadingLevel} from 'baseui/heading';
-import Typist from 'react-typist';
+import {useStyletron} from 'baseui';
+import {Grid, Cell, ALIGNMENT} from 'baseui/layout-grid';
 import { StyledLink } from "baseui/link";
-import {Layer} from 'baseui/layer';
 import { Paragraph1 } from 'baseui/typography';
 
 import profile from './../assets/DSC04973.jpg'
@@ -60,7 +57,6 @@ return (
         <SectionTitle>About Me</SectionTitle>
         <Grid gridGutters={[8,16,32]} align={ALIGNMENT.start}>
             <Cell span={[2,2,6]} >
-            <HeadingLevel>
             <Paragraph1>
                 I'm a fast-learning, honors computer science senior at the University of Texas at Dallas 
                 with an affinity for software development, writing, and painting. For a brief explanation 
@@ -73,11 +69,10 @@ return (
                 community through the student chapter of the&nbsp;
                 <StyledLink href="https://www.acmutd.co/" target="_blank">ACM at UTD.</StyledLink>
             </Paragraph1>
-            </HeadingLevel>
             </Cell>
             <Cell skip={[0, 1, 2]} span={[2,3,4]}>
                 <div className={overlayOuter}>
-                <img src={profile} style={{width: '100%', objectFit: "cover", borderRadius: '10px'}} />
+                <img alt="Mustafa Sadriwala" src={profile} style={{width: '100%', objectFit: "cover", borderRadius: '10px'}} />
                 <div className={overlayInner} />
                 </div>
             </Cell>

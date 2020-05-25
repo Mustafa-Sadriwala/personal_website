@@ -1,10 +1,8 @@
 import * as React from 'react';
-import {useStyletron, styled} from 'baseui';
-import {Grid, Cell, BEHAVIOR, ALIGNMENT} from 'baseui/layout-grid';
+import {useStyletron} from 'baseui';
+import {Grid, Cell} from 'baseui/layout-grid';
 import {Heading, HeadingLevel} from 'baseui/heading';
 import Typist from 'react-typist';
-import { StyledLink } from "baseui/link";
-import {Layer} from 'baseui/layer';
 
 
 import 'react-typist/dist/Typist.css';
@@ -12,8 +10,8 @@ import 'react-typist/dist/Typist.css';
 import { Paragraph1 } from 'baseui/typography';
 
 
-function Header(props) {
-    const [css, theme] = useStyletron();
+function Header() {
+    const [css] = useStyletron();
     const headerStyles = css({
         display: 'inline-block', marginTop:0, marginBottom: 0, paddingTop: 0, paddingBottom:0,
       });

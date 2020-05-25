@@ -1,13 +1,9 @@
 import React, {useState} from 'react';
 import {useStyletron, styled} from 'baseui';
-import {Grid, Cell, BEHAVIOR, ALIGNMENT} from 'baseui/layout-grid';
-import {Heading, HeadingLevel} from 'baseui/heading';
-import Typist from 'react-typist';
-import { StyledLink } from "baseui/link";
-import {Layer as div} from 'baseui/layer';
+import {Grid, Cell} from 'baseui/layout-grid';
 import {StatefulMenu} from 'baseui/menu';
 import {Card, StyledContents, StyledBody} from 'baseui/card';
-import { Paragraph1, H1, H2, H5, H6, H4 } from 'baseui/typography';
+import { Paragraph1, H5, H6 } from 'baseui/typography';
 import { Tag, VARIANT} from 'baseui/tag';
 
 import CARD_WORK from './../assets/work-metadata.json';
@@ -55,10 +51,6 @@ function Work(props) {
             paddingTop: '10px'
         }
     })
-    const subHeadingStyles = css({
-        marginBlockEnd: '.1em',
-        marginBlockStart: '.3em',
-    })
     const paragraphStyles = css({
         marginBlockStart: '0',
         marginBlockEnd: '0'
@@ -79,7 +71,7 @@ function Work(props) {
                             getItemLabel: item => item.label,
                             },
                             style: (props) => {
-                                if(props.children.props.children == menuItemChosen) {
+                                if(props.children.props.children === menuItemChosen) {
                                     return {
                                         backgroundColor: accentColor,
                                         color:  selectedMenuItemColor,
@@ -92,12 +84,11 @@ function Work(props) {
                             props: {
                                 $isFocusVisible: false
                             },
-                            style: (props) => {
+                            style: () => {
                                 return {
                                 height: "20vh",
                                 width: '20vw',
                                 boxShadow: 'none',
-                                backgroundColor: accentColor,
                                 backgroundColor: accentColor + "33",
                                 overflow: 'hidden',
                                 ':hover' : {
@@ -138,8 +129,8 @@ function Work(props) {
                     <StyledBody>
                         <StyledList>
                         { CARD_WORK[menuItemChosen].bullets ? (
-                            CARD_WORK[menuItemChosen].bullets.map((bullet) => (
-                                <StyledListItem>
+                            CARD_WORK[menuItemChosen].bullets.map((bullet, index) => (
+                                <StyledListItem key={index}>
                                     {bullet}
                                 </StyledListItem>
                             ))
@@ -151,8 +142,8 @@ function Work(props) {
                     </StyledBody>
                     <StyledContents>
                         {CARD_WORK[menuItemChosen].technologies ? (
-                            CARD_WORK[menuItemChosen].technologies.map((tech) => (
-                                <Tag closeable={false} kind='accent' variant={VARIANT.light}>
+                            CARD_WORK[menuItemChosen].technologies.map((tech, index) => (
+                                <Tag key={index} closeable={false} kind='accent' variant={VARIANT.light}>
                                     {tech}
                                 </Tag>
                             ))

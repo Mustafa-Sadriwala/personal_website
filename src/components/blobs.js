@@ -1,6 +1,6 @@
 import './../blob.scss'
 import React, { useState, useEffect, useRef } from 'react';
-import {useStyletron, styled} from 'baseui';
+import {useStyletron} from 'baseui';
 import useWindowDimensions from './windowDimensions';
 
 
@@ -79,7 +79,6 @@ function createInitialBlobs(blobColors) {
 
 function createBlobs(blobColors, windowHeight) {
     let blobArr = [];
-    console.log("is the method being called?");
     const paths = ["M116.5,-85.1C149.7,-51.4,174.3,-3,153.7,14.2C133.2,31.5,67.5,17.5,13,54.3C-41.5,91,-84.8,178.4,-123.4,186.5C-162,194.7,-196.1,123.6,-187.8,68.9C-179.4,14.2,-128.8,-24.1,-90.5,-59C-52.1,-93.9,-26.1,-125.4,7.8,-131.7C41.7,-137.9,83.4,-118.8,116.5,-85.1Z",
 "M185.5,-130.3C228.7,-93.7,244,-17.3,218.4,31.7C192.7,80.6,126.1,102,62.5,134.3C-1,166.7,-61.5,209.9,-110.5,198.3C-159.6,186.7,-197.3,120.1,-209.5,52C-221.8,-16.2,-208.6,-86,-169.5,-121.6C-130.3,-157.2,-65.2,-158.6,3,-161C71.1,-163.4,142.3,-166.8,185.5,-130.3Z",
 "M70.2,-92.1C92.4,-48.1,112.7,-24,133.7,21C154.7,66,176.3,132,154.2,160.8C132,189.7,66,181.3,13,168.4C-40.1,155.4,-80.1,137.8,-126.1,109C-172.1,80.1,-224.1,40.1,-230.3,-6.2C-236.6,-52.6,-197.1,-105.1,-151.1,-149.1C-105.1,-193.1,-52.6,-228.6,-14.3,-214.3C24,-200,48.1,-136.1,70.2,-92.1Z",
@@ -92,7 +91,6 @@ function createBlobs(blobColors, windowHeight) {
     const animations = ["move1", "move2", "move3", "move4", "move5", "move6", "move7", "move8"];
     const timingForAnimations = ["30s", "40s", "50s", "60s", "70s", "80s", "90s"];
     let docHeight = window.document.body.offsetHeight;
-    console.log("the doc height is: " + docHeight);
     for(let i = windowHeight; i < docHeight; i += windowHeight){
         let j = Math.floor((Math.random() * 2));
         shuffleArray(paths);
@@ -131,21 +129,17 @@ const Blobs = (props) => {
     const [randomBlobs, setRandomBlobs] = useState();
     const [initialBlobs, setInitialBlobs] = useState();
     const didMountRef = useRef(false)
+    const {height} = useWindowDimensions();
 
-
-    let blobColors = [];
-    if(props.lightTheme){
-        blobColors = [theme.colors.accent, theme.colors.accent50, theme.colors.accent100, theme.colors.accent200, theme.colors.accent300];
-     } else {
-        blobColors = [theme.colors.accent700, theme.colors.accent600, theme.colors.accent500, theme.colors.accent400, theme.colors.accent300];
-     } 
-    const {height, width} = useWindowDimensions();
+    const lightBlobColors = [theme.colors.accent, theme.colors.accent50, theme.colors.accent100, theme.colors.accent200, theme.colors.accent300];
+    const darkBlobColors = [theme.colors.accent700, theme.colors.accent600, theme.colors.accent500, theme.colors.accent400, theme.colors.accent300];
 
     useEffect(() => {
+        let blobColors = [];
         if(props.lightTheme){
-            blobColors = [theme.colors.accent, theme.colors.accent50, theme.colors.accent100, theme.colors.accent200, theme.colors.accent300];
+            blobColors = lightBlobColors.slice(0);
          } else {
-            blobColors = [theme.colors.accent700, theme.colors.accent600, theme.colors.accent500, theme.colors.accent400, theme.colors.accent300];
+            blobColors = darkBlobColors.slice(0);
          } 
         if(!didMountRef.current) {
             shuffleArray(blobColors);

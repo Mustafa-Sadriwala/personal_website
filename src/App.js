@@ -1,10 +1,7 @@
 import React from 'react';
 import './App.scss';
-import {Button, KIND, SIZE, SHAPE} from 'baseui/button';
-import {DarkTheme, LightTheme, BaseProvider, styled} from 'baseui';
+import {BaseProvider, styled} from 'baseui';
 import {Layer} from 'baseui/layer';
-import {useStyletron} from 'baseui';
-import {Grid, Cell, BEHAVIOR, ALIGNMENT} from 'baseui/layout-grid';
 import {createTheme, createDarkTheme} from 'baseui';
 
 
@@ -17,7 +14,7 @@ import Blobs from './components/blobs';
 import Work from './components/work';
 import Projects from './components/projects';
 
-const Centered = styled('div', ({$theme}) => {
+const Centered = styled('div', () => {
   return {
     display: 'flex',
     justifyContent: 'center',
@@ -54,15 +51,17 @@ const lightTheme = createTheme(primitives, {
     // buttonPrimaryFill: primitives.accent,
     // buttonPrimaryHover: primitives.accent,
     buttonSecondaryFill: primitives.accent50,
-    buttonSecondaryHover: primitives.accent100,
+    buttonSecondaryHover: primitives.accent200,
     buttonSecondaryActive: primitives.accent300,
 
-    buttonTertiaryHover: primitives.accent,
+    buttonTertiaryHover: primitives.accent200,
+    buttonTertiaryActive: primitives.accent500,
   }
 });
 const darkTheme = createDarkTheme(primitives, {
   colors: {
-    buttonTertiaryHover: primitives.accent700,
+    buttonTertiaryHover: primitives.accent500,
+    buttonTertiaryActive: primitives.accent700
   }
 });
 
@@ -71,7 +70,6 @@ const darkTheme = createDarkTheme(primitives, {
 function App() {
   const [theme, setTheme] = React.useState(THEME.light);
   const [toggle, setToggle] = React.useState(false);
-  const [css, themeVar] = useStyletron();
   const BackgroundStyles = styled('div', ({$theme}) => {
     return {
       backgroundColor: $theme.colors.background,

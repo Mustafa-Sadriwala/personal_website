@@ -132,7 +132,7 @@ export default function Projects(props) {
             marginRight="5vw"
             >
             {cardProjects.map((project, index) => (
-                <FlexGridItem  height='40vh' display="flex" index={index}>
+                <FlexGridItem  height='40vh' display="flex" key={index}>
                 <StyledDiv tabIndex={index} onClick={(event) => {setSelectedProjectIndex(index); toggle(event)}}>
                     <Grid gridMargins={[6,12,24]} gridGaps={0} gridGutters={0}>
                         <Cell span={[3,7,9]}>
@@ -190,7 +190,7 @@ export default function Projects(props) {
                         <Cell span={[4,8,12]}>
                             {project.tags.map((tag, index) => (
                                 <Tag closeable={false}
-                                index={index}
+                                key={index}
                                 overrides={{
                                     Text: {
                                       style: () => {
