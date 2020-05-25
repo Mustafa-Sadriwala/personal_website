@@ -64,7 +64,7 @@ export default function Modal({isShowing, hide, project, lightTheme}) {
         }
     })
 
-    const IconWrapper = styled('div', ({$theme}) => {
+    const IconWrapper = styled('div', () => {
         return {
             fill: lightTheme ? "#000" : "#fff",
             ':hover' : {
@@ -121,12 +121,10 @@ export default function Modal({isShowing, hide, project, lightTheme}) {
                             </Paragraph1>
                         </Cell>
                         <Cell span={[2,3,4]} align={ALIGNMENT.center}>
-                            <div style={{height: '50%', fontSize: '.8em', display: 'flex', position: 'absolute'}}>
-                            <img style={{objectFit: 'contain', width: '100%'}} src={project.img}></img>
+                            <div style={{height: '100%', padding: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                            <img style={{objectFit: 'cover', maxHeight: '40vh', width: '100%', boxShadow: 'rgba(0, 0, 0, 0.16) 0px 4px 16px'}} src={project.img}></img>
                             </div>
                         </Cell>
-                    </Grid>
-                    <Grid>
                     </Grid>
                     <div style={{width: '100%', position: 'absolute', bottom: '10px'}}>
                         <div style={{display: 'inline-block'}}>
@@ -146,33 +144,6 @@ export default function Modal({isShowing, hide, project, lightTheme}) {
                             </div>
                         </div>
                     </div>
-                    {/* <Grid gridMargins={[3,6,12]} gridGaps={0} gridGutters={0} align={ALIGNMENT.end}
-                    overrides={{
-                        Grid: {
-                            style: () => ({
-                                position: "absolute",
-                                bottom: "10px",
-                            })
-                        }
-                    }}>
-
-                        <Cell span={[3,7,10]}>
-                            {project.tags.map((tag, index) => (
-                                <Tag closeable={false}
-                                key={index}
-                                >{tag}</Tag>
-                            ))}
-                        </Cell>
-                        <Cell span={[1,1,2]}>
-                        <div style={{width: '100%', display: 'inline-block'}}>
-                            <div style={{display: 'flex', justifyContent: 'flex-end', paddingRight: '25px'}}>
-                                <Button onClick={hide} shape={SHAPE.pill} kind={KIND.tertiary}>
-                                    close
-                                </Button>
-                            </div>
-                        </div>
-                        </Cell>
-                    </Grid> */}
                 </SelectedDiv>
                 </WrapperDiv>
             </React.Fragment>, document.body
