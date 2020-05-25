@@ -11,6 +11,7 @@ import { StyledLink } from "baseui/link";
 import {Checkbox, STYLE_TYPE} from 'baseui/checkbox';
 import {H5} from 'baseui/typography';
 import useWindowDimensions from './windowDimensions';
+import { Button, KIND, SHAPE} from 'baseui/button';
 
 
 
@@ -58,6 +59,11 @@ function NavBar(props) {
             <StyledNavigationItem>
               <StyledLink href="#projects">
                 Projects
+              </StyledLink>
+            </StyledNavigationItem>
+            <StyledNavigationItem>
+              <StyledLink href="https://mustafa-sadriwala.github.io/resume/" target="_blank">
+                Resume
               </StyledLink>
             </StyledNavigationItem>
           </StyledNavigationList>)}
