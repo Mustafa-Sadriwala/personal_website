@@ -123,7 +123,7 @@ export default function Projects(props) {
             <div style={{zIndex: 5, width: '100%'}}>
             <SectionTitle gridGaps={0}>Projects</SectionTitle>
             <div style={{zIndex: 6, width: '100%',display: 'flex', justifyContent: 'flex-end'}}>
-            <div style={{zIndex: 100, width: '25%', paddingRight: '5vw', paddingBottom: '20px'}}>
+            <div style={{zIndex: 100, width: '25%', paddingRight: '5vw', paddingBottom: '20px', colors: `${theme.colors.contentPrimary}`}}>
                 <Select
                 options={[
                     {label: "All", id: "all"},
@@ -147,6 +147,14 @@ export default function Projects(props) {
                                         zIndex: 8
                                     }
                                 }
+                            }
+                        }
+                    },
+                    ControlContainer: {
+                        style: () => {
+                            return {
+                                border: 'none',
+                                backgroundColor: accentColor + '33',
                             }
                         }
                     }
