@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import {useStyletron} from 'baseui';
 import {Layer} from 'baseui/layer';
 import {
@@ -12,11 +12,34 @@ import {Checkbox, STYLE_TYPE} from 'baseui/checkbox';
 import {H5} from 'baseui/typography';
 import useWindowDimensions from './windowDimensions';
 import { Button, KIND, SHAPE} from 'baseui/button';
+import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 
 
 
 function NavBar(props) {
   const [css, theme] = useStyletron();
+  const {width} = useWindowDimensions();
+
+  const [headerStyle, setHeaderStyle] = useState({
+    transition: 'all .2s ease-in'
+  })
+   
+  useScrollPosition(
+    ({ prevPos, currPos }) => {
+      const isVisible = currPos.y >= prevPos.y
+   
+      const shouldBeStyle = {
+        visibility: isVisible ? 'visible' : 'hidden',
+        transition: `all .2s ${isVisible ? 'ease-in' : 'ease-out'}`,
+        transform: isVisible ? 'none' : 'translate(0, -100%)'
+      }
+   
+      if (JSON.stringify(shouldBeStyle) === JSON.stringify(headerStyle)) return
+   
+      setHeaderStyle(shouldBeStyle)
+    },
+    [headerStyle])
+
   const containerStyles = css({
     boxSizing: 'border-box',
     width: '100vw',
@@ -27,13 +50,13 @@ function NavBar(props) {
     zIndex: 6,
     //backgroundColor: theme.colors.accent100
   });
-  const {width} = useWindowDimensions();
+
   const colorBackground = props.lightTheme ? theme.colors.accent50 : theme.colors.accent600;
 
   return (
     <React.Fragment>
         <Layer>
-          <div className={containerStyles}>
+          <div className={containerStyles} style={{...headerStyle}}>
           <HeaderNavigation style={{borderBottomWidth: 0, backgroundColor: colorBackground}}>
           <StyledNavigationList $align={ALIGN.left}>
             <StyledNavigationItem>

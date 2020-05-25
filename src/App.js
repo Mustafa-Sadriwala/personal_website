@@ -22,7 +22,7 @@ const Centered = styled('div', () => {
     height: '100%',
     width: '100vw',
     paddingBottom: '200px',
-    scrollMarginTop: '125px',
+    scrollMarginTop: '100px',
   };
 });
 
