@@ -8,11 +8,14 @@ import { StyledLink } from "baseui/link";
 import {Layer as div} from 'baseui/layer';
 import {StatefulMenu} from 'baseui/menu';
 import {Card, StyledContents, StyledBody} from 'baseui/card';
+import {Button, SHAPE, KIND} from 'baseui/button';
 import { Paragraph1, Paragraph2, H1, H2, H5, H6, H4, ParagraphSmall, H3 } from 'baseui/typography';
 import { Tag, VARIANT} from 'baseui/tag';
 import {FlexGrid, FlexGridItem} from 'baseui/flex-grid';
 
 
+import {ReactComponent as GithubIcon} from './../assets/github.svg';
+import {ReactComponent as LinkIcon} from './../assets/iconfinder_link5_216660.svg'
 
 
 export default function Modal({isShowing, hide, project, lightTheme}) {
@@ -60,6 +63,15 @@ export default function Modal({isShowing, hide, project, lightTheme}) {
             left: 0,
         }
     })
+
+    const IconWrapper = styled('div', ({$theme}) => {
+        return {
+            fill: lightTheme ? "#000" : "#fff",
+            ':hover' : {
+                fill: lightTheme ? theme.colors.accent500 : theme.colors.accent100
+            }, 
+        }
+    })
     
     return(
         isShowing ? ReactDOM.createPortal(
@@ -72,20 +84,34 @@ export default function Modal({isShowing, hide, project, lightTheme}) {
                             <H3 style={{marginTop: 0, marginBottom: 0}}>
                                 {project.name}
                             </H3>
-                        </Cell>
-                        <Cell span={[1,1,3]} align={ALIGNMENT.start}>
-                            <Paragraph1 style={{marginTop: 0, marginBottom: 0}}>
-                            <div style={{marginTop: 0, fontSize: '.8em', display: 'flex', justifyContent: 'flex-end'}}>
-                                <em>{project.dateString}</em>
-                            </div>
-                            </Paragraph1>
-                        </Cell>
-                    </Grid>
-                    <Grid gridMargins={[6,12,24]} gridGaps={0} gridGutters={0}>
-                        <Cell span={[4,8,12]}>
                             <Paragraph1 style={{marginTop: 0, marginBottom: 0}}>
                                 <em>{project.organization ? (project.organization) : (<div>&nbsp;</div>)}</em>
                             </Paragraph1>
+                        </Cell>
+                        <Cell span={[1,1,3]} align={ALIGNMENT.start}>
+                            <div style={{marginTop: 0, display: 'flex', justifyContent: 'flex-end'}}>
+                            <Paragraph1 style={{marginTop: 0, marginBottom: 0}}>
+                                <em>{project.dateString}</em>
+                            </Paragraph1>
+                            </div>
+                            <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+                            {project.github &&
+                                    <div style={{display: 'inline-block', marginRight: '5px'}}>
+                                        <a style={{textDecoration: 'none'}} href={project.github} target="_blank" onClick={(e) => {e.stopPropagation()}}>
+                                        <IconWrapper>
+                                            <GithubIcon style={{height:'30px', width:'30px'}}/>
+                                        </IconWrapper>
+                                        </a>
+                                    </div>}
+                            {project.link && 
+                                <div  style={{display: 'inline-block'}}>
+                                    <a style={{textDecoration: 'none'}} href={project.link} target="_blank" onClick={(e) => {e.stopPropagation()}}>
+                                    <IconWrapper>
+                                    <LinkIcon style={{height:'30px', width:'30px'}}/>
+                                    </IconWrapper>
+                                    </a>
+                                </div>}
+                                </div>
                         </Cell>
                     </Grid>
                     <Grid gridMargins={[6,12,24]} gridGaps={0} gridGutters={0}>
@@ -101,28 +127,52 @@ export default function Modal({isShowing, hide, project, lightTheme}) {
                         </Cell>
                     </Grid>
                     <Grid>
-
                     </Grid>
-                    <button type="button" onClick={hide}>
-                            close
-                    </button>
-                    <Grid gridMargins={[3,6,12]} gridGaps={0} gridGutters={0} align={ALIGNMENT.end}
+                    <div style={{width: '100%', position: 'absolute', bottom: '10px'}}>
+                        <div style={{display: 'inline-block'}}>
+                            <div style={{display: 'flex', justifyContent: 'flex-start', alignItem: 'flex-end'}}>
+                            {project.tags.map((tag, index) => (
+                                        <Tag closeable={false}
+                                        key={index}
+                                        >{tag}</Tag>
+                                    ))}
+                            </div>
+                        </div>
+                        <div style={{display: 'inline-block', position: 'absolute', right: 20, bottom: 1, paddingRight: '20px'}}>
+                            <div style={{}}>
+                                <Button onClick={hide} shape={SHAPE.pill} kind={KIND.tertiary}>
+                                            close
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+                    {/* <Grid gridMargins={[3,6,12]} gridGaps={0} gridGutters={0} align={ALIGNMENT.end}
                     overrides={{
                         Grid: {
                             style: () => ({
                                 position: "absolute",
-                                bottom: "10px"
+                                bottom: "10px",
                             })
                         }
                     }}>
-                        <Cell span={[4,8,12]}>
+
+                        <Cell span={[3,7,10]}>
                             {project.tags.map((tag, index) => (
                                 <Tag closeable={false}
-                                index={index}
+                                key={index}
                                 >{tag}</Tag>
                             ))}
                         </Cell>
-                    </Grid>
+                        <Cell span={[1,1,2]}>
+                        <div style={{width: '100%', display: 'inline-block'}}>
+                            <div style={{display: 'flex', justifyContent: 'flex-end', paddingRight: '25px'}}>
+                                <Button onClick={hide} shape={SHAPE.pill} kind={KIND.tertiary}>
+                                    close
+                                </Button>
+                            </div>
+                        </div>
+                        </Cell>
+                    </Grid> */}
                 </SelectedDiv>
                 </WrapperDiv>
             </React.Fragment>, document.body

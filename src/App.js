@@ -60,7 +60,8 @@ function App() {
   const [css, themeVar] = useStyletron();
   const BackgroundStyles = styled('div', ({$theme}) => {
     return {
-      backgroundColor: $theme.colors.background
+      backgroundColor: $theme.colors.background,
+      overflowX: 'hidden',
     }
   })
   return (
