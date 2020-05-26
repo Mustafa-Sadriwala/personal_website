@@ -13,6 +13,7 @@ import About from './components/about';
 import Blobs from './components/blobs';
 import Work from './components/work';
 import Projects from './components/projects';
+import SocialButtons from './components/socialButtons';
 
 const Centered = styled('div', () => {
   return {
@@ -51,7 +52,7 @@ const lightTheme = createTheme(primitives, {
     // buttonPrimaryFill: primitives.accent,
     // buttonPrimaryHover: primitives.accent,
     buttonSecondaryFill: primitives.accent50,
-    buttonSecondaryHover: primitives.accent200,
+    buttonSecondaryHover: primitives.accent100,
     buttonSecondaryActive: primitives.accent300,
 
     buttonTertiaryHover: primitives.accent50,
@@ -60,6 +61,10 @@ const lightTheme = createTheme(primitives, {
 });
 const darkTheme = createDarkTheme(primitives, {
   colors: {
+    buttonSecondaryFill: primitives.accent700,
+    buttonSecondaryHover: primitives.accent600,
+    buttonSecondaryActive: primitives.accent400,
+
     buttonTertiaryHover: primitives.accent600,
     buttonTertiaryActive: primitives.accent500
   }
@@ -81,6 +86,8 @@ function App() {
       <BaseProvider theme={theme === THEME.light ? lightTheme : darkTheme}>
         <Blobs lightTheme={theme === THEME.light ? true : false} />
         <BackgroundStyles>
+          <Layer>
+          </Layer>
           <Layer>
             <NavBar 
             toggleChecked={toggle} 
