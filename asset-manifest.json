@@ -1,28 +1,29 @@
 {
   "files": {
     "main.css": "/personal_website/static/css/main.9f60da1f.chunk.css",
-    "main.js": "/personal_website/static/js/main.fbf405e5.chunk.js",
-    "main.js.map": "/personal_website/static/js/main.fbf405e5.chunk.js.map",
+    "main.js": "/personal_website/static/js/main.d213a72e.chunk.js",
+    "main.js.map": "/personal_website/static/js/main.d213a72e.chunk.js.map",
     "runtime-main.js": "/personal_website/static/js/runtime-main.bac231ce.js",
     "runtime-main.js.map": "/personal_website/static/js/runtime-main.bac231ce.js.map",
     "static/css/2.dbd8b1e0.chunk.css": "/personal_website/static/css/2.dbd8b1e0.chunk.css",
-    "static/js/2.e68ad76c.chunk.js": "/personal_website/static/js/2.e68ad76c.chunk.js",
-    "static/js/2.e68ad76c.chunk.js.map": "/personal_website/static/js/2.e68ad76c.chunk.js.map",
+    "static/js/2.b19822e1.chunk.js": "/personal_website/static/js/2.b19822e1.chunk.js",
+    "static/js/2.b19822e1.chunk.js.map": "/personal_website/static/js/2.b19822e1.chunk.js.map",
     "index.html": "/personal_website/index.html",
-    "precache-manifest.9f71133096458139dcc7321b3656f561.js": "/personal_website/precache-manifest.9f71133096458139dcc7321b3656f561.js",
+    "precache-manifest.55b75314579a849f1057fa6693fa6032.js": "/personal_website/precache-manifest.55b75314579a849f1057fa6693fa6032.js",
     "service-worker.js": "/personal_website/service-worker.js",
     "static/css/2.dbd8b1e0.chunk.css.map": "/personal_website/static/css/2.dbd8b1e0.chunk.css.map",
     "static/css/main.9f60da1f.chunk.css.map": "/personal_website/static/css/main.9f60da1f.chunk.css.map",
-    "static/js/2.e68ad76c.chunk.js.LICENSE.txt": "/personal_website/static/js/2.e68ad76c.chunk.js.LICENSE.txt",
+    "static/js/2.b19822e1.chunk.js.LICENSE.txt": "/personal_website/static/js/2.b19822e1.chunk.js.LICENSE.txt",
     "static/media/DSC04973.jpg": "/personal_website/static/media/DSC04973.ed146cf0.jpg",
     "static/media/github.0ff1a6f0.svg": "/personal_website/static/media/github.0ff1a6f0.svg",
-    "static/media/iconfinder_link5_216660.0d0cac4d.svg": "/personal_website/static/media/iconfinder_link5_216660.0d0cac4d.svg"
+    "static/media/iconfinder_link5_216660.0d0cac4d.svg": "/personal_website/static/media/iconfinder_link5_216660.0d0cac4d.svg",
+    "static/media/linkedin-icon.781daa77.svg": "/personal_website/static/media/linkedin-icon.781daa77.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.bac231ce.js",
     "static/css/2.dbd8b1e0.chunk.css",
-    "static/js/2.e68ad76c.chunk.js",
+    "static/js/2.b19822e1.chunk.js",
     "static/css/main.9f60da1f.chunk.css",
-    "static/js/main.fbf405e5.chunk.js"
+    "static/js/main.d213a72e.chunk.js"
   ]
 }
