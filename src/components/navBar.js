@@ -11,7 +11,6 @@ import { StyledLink } from "baseui/link";
 import {Checkbox, STYLE_TYPE} from 'baseui/checkbox';
 import {H5} from 'baseui/typography';
 import useWindowDimensions from './windowDimensions';
-import { Button, KIND, SHAPE} from 'baseui/button';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 
 
@@ -60,7 +59,7 @@ function NavBar(props) {
           <HeaderNavigation style={{borderBottomWidth: 0, backgroundColor: colorBackground}}>
           <StyledNavigationList $align={ALIGN.left}>
             <StyledNavigationItem>
-            <a href="#" style={{textDecoration: 'none'}}>
+            <a href="/#" style={{textDecoration: 'none'}}>
               <H5 margin={0}>
                 Mustafa Sadriwala
               </H5>

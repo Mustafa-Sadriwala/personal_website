@@ -1,10 +1,10 @@
 [
-    {"label": "Facebook"},
-    {"label": "JPMorgan Chase"},
-    {"label": "Plano Intelligence"},
-    {"label": "Kellermann Foundation"},
-    {"label": "Kumon"},
-    {"label": "NanoSpinCompute Lab"},
-    {"label": "Advanced Polymer Research Lab"},
-    {"label": "Multiscale Simulation Lab"}
-  ]
+  { "label": "Facebook" },
+  { "label": "JPMorgan Chase" },
+  { "label": "Plano Intelligence" },
+  { "label": "Kellermann Foundation" },
+  { "label": "Kumon" },
+  { "label": "NanoSpinCompute Lab" },
+  { "label": "Advanced Polymer Research Lab" },
+  { "label": "Multiscale Simulation Lab" }
+]
