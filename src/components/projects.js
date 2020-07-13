@@ -15,7 +15,8 @@ import CARD_PROJECTS from "./../assets/projects-metadata.json";
 
 import { ReactComponent as GithubIcon } from "./../assets/github.svg";
 import { ReactComponent as LinkIcon } from "./../assets/iconfinder_link5_216660.svg";
-import final_report from "./../assets/AI_Final_Report.pdf";
+import AI_final_report from "./../assets/AI_Final_Report.pdf";
+import ethics_report from "./../assets/ethics_report.pdf";
 
 function filterProjects(
   filter,
@@ -243,7 +244,9 @@ export default function Projects(props) {
                               style={{ textDecoration: "none" }}
                               href={
                                 project.name === "AI Pacman Project"
-                                  ? final_report
+                                  ? AI_final_report
+                                  : project.name === "Ethics Paper on GPT-2"
+                                  ? ethics_report
                                   : project.link
                               }
                               target="_blank"
@@ -303,7 +306,7 @@ export default function Projects(props) {
                   }}
                 >
                   <Cell span={[4, 8, 12]}>
-                    {project.tags.map((tag, index) => (
+                    {project.tags.slice(0, 4).map((tag, index) => (
                       <Tag
                         closeable={false}
                         key={index}
