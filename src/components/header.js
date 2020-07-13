@@ -28,7 +28,7 @@ function Header(props) {
               <Cell span={[3, 6, 8]}>
                 <Paragraph1
                   className={headerStyles}
-                  style={{ paddingBottom: "50px", paddingLeft: "1vw" }}
+                  style={{ paddingBottom: "4vw", paddingLeft: "1vw" }}
                 >
                   Hi, my name is..
                 </Paragraph1>
@@ -38,7 +38,7 @@ function Header(props) {
                   <Cell span={[3, 6, 8]}>
                     <Heading
                       className={headerStyles}
-                      style={{ fontSize: "15vw", paddingBotom: "50px" }}
+                      style={{ fontSize: "15vw", paddingBotom: "5vw" }}
                     >
                       Mustafa
                     </Heading>
@@ -46,7 +46,7 @@ function Header(props) {
                   <Typist.Delay ms={200} />
                   <Cell span={[3, 6, 8]}>
                     <Heading
-                      style={{ fontSize: "15vw", paddingTop: "50px" }}
+                      style={{ fontSize: "15vw", paddingTop: "4vw" }}
                       className={headerStyles}
                     >
                       Sadriwala
@@ -56,7 +56,7 @@ function Header(props) {
                   <Cell span={[3, 6, 8]}>
                     <Paragraph1
                       style={{
-                        fontSize: "5vw",
+                        fontSize: "min(5vw, 67px)",
                         paddingTop: "20px",
                         paddingLeft: 0,
                       }}
