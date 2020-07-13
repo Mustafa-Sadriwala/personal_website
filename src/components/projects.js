@@ -15,6 +15,7 @@ import CARD_PROJECTS from "./../assets/projects-metadata.json";
 
 import { ReactComponent as GithubIcon } from "./../assets/github.svg";
 import { ReactComponent as LinkIcon } from "./../assets/iconfinder_link5_216660.svg";
+import final_report from "./../assets/AI_Final_Report.pdf";
 
 function filterProjects(
   filter,
@@ -240,7 +241,11 @@ export default function Projects(props) {
                           <div style={{ display: "inline-block" }}>
                             <a
                               style={{ textDecoration: "none" }}
-                              href={project.link}
+                              href={
+                                project.name === "AI Pacman Project"
+                                  ? final_report
+                                  : project.link
+                              }
                               target="_blank"
                               onClick={(e) => {
                                 e.stopPropagation();

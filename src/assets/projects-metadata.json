@@ -75,5 +75,21 @@
     "thumbnail": "https://cdn.worldvectorlogo.com/logos/react.svg",
     "academic": false,
     "tags": ["React-Native", "JavaScript"]
+  },
+  {
+    "featured": false,
+    "name": "AI Pacman Project",
+    "organization": "CS 4365: Artificial Intelligence",
+    "position": "",
+    "dateString": "March '20 - May '20",
+    "startDate": "2020-03-01",
+    "endDate": "2020-05-10",
+    "description": "A game of Pacman Capture The Flag (CTF) involves 2 teams each comprised of 2 agents and the goal is to collect food from the opponent’s side of the map and bring it back to your own without being eaten. Working alongside my project partner, we created a solution with 2 separate agents, one offensive and the other defensive. Initially, both began as goal-based agents, but as we advanced their rationality we realized that they had different goals in different conditions. Thus, we created a modular, decision-making hierarchy based on the concept of reflex agents. Our team placed first in the pre-final and final tournaments, going undefeated both times. We created a final report (linked) detailing our methods. For academic integrity purposes, our code is not made public.",
+    "github": "",
+    "link": "public/AI_Final_Report.pdf",
+    "img": "https://www.cs.umd.edu/class/spring2013/cmsc421/projects/p5/capture_the_flag.png",
+    "thumbnail": "https://cdn.worldvectorlogo.com/logos/python-5.svg",
+    "academic": true,
+    "tags": ["Python", "AI"]
   }
 ]
