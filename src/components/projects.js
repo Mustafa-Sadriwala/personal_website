@@ -410,7 +410,7 @@ export default function Projects(props) {
             paddingTop: "50px",
           }}
         >
-          {filterValue[0].id !== "all" ? (
+          {filterValue[0].id === "featured" ? (
             <Button
               kind={KIND.tertiary}
               shape={SHAPE.pill}
