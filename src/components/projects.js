@@ -22,7 +22,8 @@ function filterProjects(
   filter,
   allCardProjects,
   cardProjects,
-  setCardProjects
+  setCardProjects,
+  sortValue
 ) {
   let newCardProjects = cardProjects;
   if (filter === "all") {
@@ -34,18 +35,63 @@ function filterProjects(
   } else if (filter === "non-academic") {
     newCardProjects = allCardProjects.filter((project) => !project.academic);
   }
-  setCardProjects(newCardProjects);
+  sortProjects(sortValue, newCardProjects, setCardProjects);
+}
+
+function sortProjects(sortStyle, currentCardProjects, setCardProjects) {
+  console.log(sortStyle);
+  switch (sortStyle) {
+    case "end-date":
+      currentCardProjects.sort((a, b) => {
+        const aDate =
+          a.endDate === "present" ? new Date() : new Date(a.endDate);
+        const bDate =
+          b.endDate === "present" ? new Date() : new Date(b.endDate);
+        return bDate - aDate;
+      });
+      break;
+    case "start-date":
+      currentCardProjects.sort((a, b) => {
+        const aDate = new Date(a.startDate);
+        const bDate = new Date(b.startDate);
+        return bDate - aDate;
+      });
+      break;
+    case "duration":
+      currentCardProjects.sort((a,b) => {
+        const aStart = new Date(a.startDate);
+        const aEnd = a.endDate === "present" ? new Date() : new Date(a.endDate);
+        const bStart = new Date(b.startDate);
+        const bEnd = b.endDate === "present" ? new Date() : new Date(b.endDate);
+        return (bEnd - bStart) - (aEnd - aStart);
+      })
+      break;
+    case "rev-alpha":
+      currentCardProjects.sort((a, b) => b.name.localeCompare(a.name));
+      break;
+    case "alpha":
+    default:
+      currentCardProjects.sort((a, b) => a.name.localeCompare(b.name));
+  }
+  setCardProjects(currentCardProjects);
 }
 
 export default function Projects(props) {
   const [css, theme] = useStyletron();
   const [cardProjects, setCardProjects] = useState(
-    CARD_PROJECTS.filter((project) => project.featured)
+    CARD_PROJECTS.filter((project) => project.featured).sort((a, b) => {
+      const aDate = a.endDate === "present" ? new Date() : new Date(a.endDate);
+      const bDate = b.endDate === "present" ? new Date() : new Date(b.endDate);
+      return bDate - aDate;
+    })
   );
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(-1);
   const { isShowing, toggle } = useModal();
   const [filterValue, setFilterValue] = useState([
     { label: "Featured", id: "featured" },
+  ]);
+  const [sortValue, setSortValue] = useState([
+    { label: "End Date", id: "end-date" },
   ]);
 
   const accentColor = props.lightTheme
@@ -111,6 +157,38 @@ export default function Projects(props) {
     };
   });
 
+  const SelectWrapper = styled("div", () => {
+    return {
+      zIndex: 100,
+      width: "20%",
+      paddingRight: "1vw",
+      paddingBottom: "20px",
+      color: `${theme.colors.contentPrimary}`,
+    };
+  });
+
+  const selectOverrides = {
+    Popover: {
+      props: {
+        overrides: {
+          Body: {
+            style: {
+              zIndex: 8,
+            },
+          },
+        },
+      },
+    },
+    ControlContainer: {
+      style: () => {
+        return {
+          border: "none",
+          backgroundColor: accentColor + "33",
+        };
+      },
+    },
+  };
+
   return (
     <React.Fragment>
       {selectedProjectIndex !== -1 && (
@@ -129,17 +207,32 @@ export default function Projects(props) {
             width: "100%",
             display: "flex",
             justifyContent: "flex-end",
+            flexDirection: "row",
           }}
         >
-          <div
-            style={{
-              zIndex: 100,
-              width: "25%",
-              paddingRight: "5vw",
-              paddingBottom: "20px",
-              colors: `${theme.colors.contentPrimary}`,
-            }}
-          >
+          <SelectWrapper>
+            <Select
+              options={[
+                { label: "A -> Z", id: "alpha" },
+                { label: "Z -> A", id: "rev-alpha" },
+                { label: "End Date", id: "end-date" },
+                { label: "Start Date", id: "start-date" },
+                { label: "Duration", id: "duration" },
+              ]}
+              value={sortValue}
+              onChange={(params) => {
+                setSortValue(params.value);
+                sortProjects(params.value[0].id, cardProjects, setCardProjects);
+                console.log(params.value);
+              }}
+              backspaceRemoves={false}
+              clearable={false}
+              deleteRemoves={false}
+              escapeClearsValue={false}
+              overrides={{ ...selectOverrides }}
+            />
+          </SelectWrapper>
+          <SelectWrapper style={{ paddingRight: "5vw" }}>
             <Select
               options={[
                 { label: "All", id: "all" },
@@ -150,42 +243,23 @@ export default function Projects(props) {
               value={filterValue}
               onChange={(params) => {
                 setFilterValue(params.value);
+                console.error(sortValue);
                 filterProjects(
                   params.value[0].id,
                   CARD_PROJECTS,
                   cardProjects,
-                  setCardProjects
+                  setCardProjects,
+                  sortValue[0].id
                 );
                 console.log(params.value);
               }}
-              placeholder="Filter projects"
               backspaceRemoves={false}
               clearable={false}
               deleteRemoves={false}
               escapeClearsValue={false}
-              overrides={{
-                Popover: {
-                  props: {
-                    overrides: {
-                      Body: {
-                        style: {
-                          zIndex: 8,
-                        },
-                      },
-                    },
-                  },
-                },
-                ControlContainer: {
-                  style: () => {
-                    return {
-                      border: "none",
-                      backgroundColor: accentColor + "33",
-                    };
-                  },
-                },
-              }}
+              overrides={{ ...selectOverrides }}
             />
-          </div>
+          </SelectWrapper>
         </div>
         <FlexGrid
           flexGridColumnCount={[1, 1, 2, 3]}
