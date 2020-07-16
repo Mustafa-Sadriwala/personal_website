@@ -39,7 +39,6 @@ function filterProjects(
 }
 
 function sortProjects(sortStyle, currentCardProjects, setCardProjects) {
-  console.log(sortStyle);
   switch (sortStyle) {
     case "end-date":
       currentCardProjects.sort((a, b) => {
@@ -58,13 +57,13 @@ function sortProjects(sortStyle, currentCardProjects, setCardProjects) {
       });
       break;
     case "duration":
-      currentCardProjects.sort((a,b) => {
+      currentCardProjects.sort((a, b) => {
         const aStart = new Date(a.startDate);
         const aEnd = a.endDate === "present" ? new Date() : new Date(a.endDate);
         const bStart = new Date(b.startDate);
         const bEnd = b.endDate === "present" ? new Date() : new Date(b.endDate);
-        return (bEnd - bStart) - (aEnd - aStart);
-      })
+        return bEnd - bStart - (aEnd - aStart);
+      });
       break;
     case "rev-alpha":
       currentCardProjects.sort((a, b) => b.name.localeCompare(a.name));
@@ -223,7 +222,6 @@ export default function Projects(props) {
               onChange={(params) => {
                 setSortValue(params.value);
                 sortProjects(params.value[0].id, cardProjects, setCardProjects);
-                console.log(params.value);
               }}
               backspaceRemoves={false}
               clearable={false}
@@ -243,7 +241,6 @@ export default function Projects(props) {
               value={filterValue}
               onChange={(params) => {
                 setFilterValue(params.value);
-                console.error(sortValue);
                 filterProjects(
                   params.value[0].id,
                   CARD_PROJECTS,
@@ -251,7 +248,6 @@ export default function Projects(props) {
                   setCardProjects,
                   sortValue[0].id
                 );
-                console.log(params.value);
               }}
               backspaceRemoves={false}
               clearable={false}
@@ -420,7 +416,8 @@ export default function Projects(props) {
                   "all",
                   CARD_PROJECTS,
                   cardProjects,
-                  setCardProjects
+                  setCardProjects,
+                  sortValue[0].id
                 );
               }}
             >
@@ -436,7 +433,8 @@ export default function Projects(props) {
                   "featured",
                   CARD_PROJECTS,
                   cardProjects,
-                  setCardProjects
+                  setCardProjects,
+                  sortValue[0].id
                 );
               }}
             >
