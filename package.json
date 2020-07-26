@@ -9,7 +9,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "baseui": "^9.73.2",
-    "gh-pages": "^2.2.0",
+    "gh-pages": "^3.1.0",
     "json-loader": "^0.5.7",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
