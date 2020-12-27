@@ -12,6 +12,7 @@ import About from "./components/about";
 import Blobs from "./components/blobs";
 import Work from "./components/work";
 import Projects from "./components/projects";
+import Footer from "./components/footer";
 
 const Centered = styled("div", () => {
   return {
@@ -24,6 +25,15 @@ const Centered = styled("div", () => {
     scrollMarginTop: "100px",
   };
 });
+
+const CenteredFooter = styled("div", () => {
+  return {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100vw",
+  };
+})
 
 const THEME = {
   light: "light",
@@ -107,6 +117,9 @@ function App() {
         <Centered id="projects">
           <Projects lightTheme={theme === THEME.light ? true : false} />
         </Centered>
+        <CenteredFooter>
+          <Footer lightTheme={theme === THEME.light}/>
+        </CenteredFooter>
       </BackgroundStyles>
     </BaseProvider>
   );
