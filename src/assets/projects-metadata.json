@@ -203,5 +203,21 @@
     "thumbnail": "https://cdn.worldvectorlogo.com/logos/c-2975.svg",
     "academic": true,
     "tags": ["OS", "Unix", "C", "Java", "Sockets", "Academic"]
+  },
+  {
+    "featured": false,
+    "name": "GWC Website",
+    "organization": "UTD Girls Who Code",
+    "position": "Director of Logistics",
+    "dateString": "Aug '20 - Mar '21",
+    "startDate": "2020-08-24",
+    "endDate": "2021-03-14",
+    "description": "Created, designed, and deployed a single-page website for UTD Girls Who Code. Worked to maintain strict branding guidelines and built using React, HTML, CSS, JavaScript, and the Grommet UI Framework.",
+    "github": "https://github.com/utd-gwc/utd-gwc.github.io",
+    "link": "http://utdgwc.com/",
+    "img": "https://media.giphy.com/media/nlSv36epMvzUGWYmlP/giphy.gif",
+    "thumbnail": "https://cdn.worldvectorlogo.com/logos/react.svg",
+    "academic": false,
+    "tags": ["React", "JavaScript", "HTML", "CSS"]
   }
 ]
