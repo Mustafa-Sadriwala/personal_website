@@ -8,6 +8,8 @@ import { Tag } from "baseui/tag";
 
 import { ReactComponent as GithubIcon } from "./../assets/github.svg";
 import { ReactComponent as LinkIcon } from "./../assets/iconfinder_link5_216660.svg";
+import AI_final_report from "./../assets/AI_Final_Report.pdf";
+import ethics_report from "./../assets/ethics_report.pdf";
 
 export default function Modal({ isShowing, hide, project, lightTheme }) {
   const [css, theme] = useStyletron();
@@ -126,7 +128,13 @@ export default function Modal({ isShowing, hide, project, lightTheme }) {
                       <div style={{ display: "inline-block" }}>
                         <a
                           style={{ textDecoration: "none" }}
-                          href={project.link}
+                          href={
+                            project.name === "AI Pacman Project"
+                                  ? AI_final_report
+                                  : project.name === "Ethics Paper on GPT-2"
+                                  ? ethics_report
+                                  : project.link
+                          }
                           target="_blank"
                           onClick={(e) => {
                             e.stopPropagation();
