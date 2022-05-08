@@ -89,7 +89,7 @@ function App() {
   });
   return (
     <BaseProvider theme={theme === THEME.light ? lightTheme : darkTheme}>
-      <Blobs lightTheme={theme === THEME.light ? true : false} />
+      <Blobs lightTheme={theme === THEME.light} />
       <BackgroundStyles>
         <Layer></Layer>
         <Layer>
@@ -99,23 +99,23 @@ function App() {
               let nextToggle = toggle;
               nextToggle = e.currentTarget.checked;
               setToggle(nextToggle);
-              setTheme(theme === THEME.light ? THEME.dark : THEME.light);
+              setTheme(theme === THEME.light);
             }}
-            lightTheme={theme === THEME.light ? true : false}
+            lightTheme={theme === THEME.light}
             themeName={theme === THEME.light ? "dark mode" : "light mode"}
           />
         </Layer>
         <Centered>
-          <Header lightTheme={theme === THEME.light ? true : false} />
+          <Header lightTheme={theme === THEME.light} />
         </Centered>
         <Centered id="about">
-          <About lightTheme={theme === THEME.light ? true : false} />
+          <About lightTheme={theme === THEME.light} />
         </Centered>
         <Centered id="work">
-          <Work lightTheme={theme === THEME.light ? true : false} />
+          <Work lightTheme={theme === THEME.light} />
         </Centered>
         <Centered id="projects">
-          <Projects lightTheme={theme === THEME.light ? true : false} />
+          <Projects lightTheme={theme === THEME.light} />
         </Centered>
         <CenteredFooter>
           <Footer lightTheme={theme === THEME.light}/>
