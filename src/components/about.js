@@ -54,10 +54,10 @@ function About(props) {
   });
   return (
     <React.Fragment>
-      <div style={{ zIndex: 5, paddingRight: "5vw", maxHeight: "60vh" }}>
+      <div style={{ zIndex: 5, paddingRight: "5vw", maxHeight: "60vh", marginBottom: '10vh' }}>
         <SectionTitle>About Me</SectionTitle>
         <Grid gridGutters={[8, 16, 32]} align={ALIGNMENT.start}>
-          <Cell span={[2, 2, 6]}>
+          <Cell span={[4, 4, 6]} order={[1, 0, 0]}>
             <Paragraph1>
               I'm a fast-learning, honors computer science senior at the
               University of Texas at Dallas with an affinity for software
@@ -75,7 +75,7 @@ function About(props) {
               </StyledLink>
             </Paragraph1>
           </Cell>
-          <Cell skip={[0, 1, 2]} span={[2, 3, 4]}>
+          <Cell skip={[2, 1, 2]} span={[2, 3, 4]}>
             <div className={overlayOuter}>
               <img
                 alt="Mustafa Sadriwala"
