@@ -104,6 +104,7 @@ export default function Projects(props) {
     return {
       height: "100%",
       width: "100%",
+      padding: "15px",
       backgroundColor: accentColor,
       borderRadius: "10px",
       position: "relative",
@@ -276,7 +277,7 @@ export default function Projects(props) {
               >
                 <Grid gridMargins={[6, 12, 24]} gridGaps={0} gridGutters={0}>
                   <Cell span={[3, 7, 9]}>
-                    <Grid gridMargins={0} gridGaps={[0, 2, 4]} gridGutters={0}>
+                    <Grid gridMargins={0} gridGutters={0}>
                       <Cell span={[4, 8, 12]}>
                         <H5 style={{ marginTop: 0, marginBottom: 0 }}>
                           {project.name}
@@ -316,8 +317,8 @@ export default function Projects(props) {
                                 project.name === "AI Pacman Project"
                                   ? AI_final_report
                                   : project.name === "Ethics Paper on GPT-2"
-                                  ? ethics_report
-                                  : project.link
+                                    ? ethics_report
+                                    : project.link
                               }
                               target="_blank"
                               onClick={(e) => {
