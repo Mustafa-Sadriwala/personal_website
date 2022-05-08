@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import { useStyletron, styled } from "baseui";
+import { useStyletron } from "baseui";
 import { Grid, Cell } from "baseui/layout-grid";
 import { StatefulMenu } from "baseui/menu";
-import { Card, StyledContents, StyledBody } from "baseui/card";
-import { Paragraph1, H5, H6 } from "baseui/typography";
-import { Tag, VARIANT } from "baseui/tag";
-
-import CARD_WORK from "./../assets/work-metadata.json";
 import MENU_WORK from "./../assets/work-names.json";
 import SectionTitle from "./sectionTitle";
+import WorkCard from "./workCard";
 
 // const LANGUAGES = ['Java', 'JavaScript', 'Python', 'HTML', 'CSS/SCSS', 'C/C++', 'Bash', 'MIPS'];
 // const SOFTWARES = ['React', 'Git', 'LaTeX', 'MySQL', 'Firebase', 'Android Studio', 'Strapi', 'Matlab', 'MS Office'];
@@ -17,10 +13,8 @@ import SectionTitle from "./sectionTitle";
 function Work(props) {
   //const [technologies, setTechnologies] = useState([]);
   const [menuItemChosen, setMenuItemChosen] = useState("JPMorgan Chase");
-  const [css, theme] = useStyletron();
-  const accentColorInverse = props.lightTheme
-    ? theme.colors.accent600
-    : theme.colors.accent50;
+  const [_, theme] = useStyletron();
+
   const accentColor = props.lightTheme
     ? theme.colors.accent50
     : theme.colors.accent600;
@@ -33,33 +27,6 @@ function Work(props) {
   //         paddingRight: '10px',
   //     }
   // })
-  const StyledListItem = styled("li", ({ $theme }) => {
-    return {
-      position: "relative",
-      listStyle: "none outside",
-      display: "list-item",
-      paddingLeft: "0px",
-      marginBottom: "10px",
-      "::before": {
-        boxSizing: "border-box",
-        position: "absolute",
-        left: "-20px",
-        content: "'•'",
-        color: accentColorInverse,
-      },
-    };
-  });
-  const StyledList = styled("ul", () => {
-    return {
-      paddingInlineStart: "30px",
-      paddingInlineEnd: "30px",
-      paddingTop: "10px",
-    };
-  });
-  const paragraphStyles = css({
-    marginBlockStart: "0",
-    marginBlockEnd: "0",
-  });
 
   return (
     <React.Fragment>
@@ -74,7 +41,7 @@ function Work(props) {
       >
         <SectionTitle gridGaps={18}>Work Experience</SectionTitle>
         <Grid gridMargins={[25, 50, 100]}>
-          <Cell span={[1, 2, 4]}>
+          <Cell span={[4, 2, 4]}>
             <StatefulMenu
               items={MENU_WORK}
               onItemSelect={(item) => {
@@ -102,7 +69,8 @@ function Work(props) {
                   style: () => {
                     return {
                       height: "20vh",
-                      width: "20vw",
+                      width: "100%",
+                      marginBottom: "10vh",
                       boxShadow: "none",
                       backgroundColor: accentColor + "33",
                       overflow: "hidden",
@@ -115,63 +83,8 @@ function Work(props) {
               }}
             />
           </Cell>
-          <Cell span={[3, 6, 8]} style={{ paddingRight: 0, margin: 0 }}>
-            <Card
-              style={{
-                width: "55vw",
-                height: "61vh",
-                overflowY: "auto",
-                boxShadow: "rgba(0, 0, 0, 0.16) 0px 4px 16px",
-              }}
-            >
-              <Grid gridGutters={0} gridMargins={[0, 0, 24]} gridGaps={0}>
-                <Cell span={[3, 6, 8]}>
-                  <H5 style={{ marginBottom: 0, marginTop: 0 }}>
-                    {CARD_WORK[menuItemChosen].title}
-                  </H5>
-                  <H6 style={{ marginTop: 0, marginBottom: 0 }}>
-                    <em>{CARD_WORK[menuItemChosen].position}</em>
-                  </H6>
-                </Cell>
-                <Cell span={[1, 2, 4]}>
-                  <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                    <Paragraph1 className={paragraphStyles}>
-                      {CARD_WORK[menuItemChosen].date}
-                    </Paragraph1>
-                  </div>
-                  <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                    <Paragraph1 className={paragraphStyles}>
-                      {CARD_WORK[menuItemChosen].location}
-                    </Paragraph1>
-                  </div>
-                </Cell>
-              </Grid>
-              <StyledBody>
-                <StyledList>
-                  {CARD_WORK[menuItemChosen].bullets
-                    ? CARD_WORK[menuItemChosen].bullets.map((bullet, index) => (
-                        <StyledListItem key={index}>{bullet}</StyledListItem>
-                      ))
-                    : CARD_WORK[menuItemChosen].body}
-                </StyledList>
-              </StyledBody>
-              <StyledContents>
-                {CARD_WORK[menuItemChosen].technologies
-                  ? CARD_WORK[menuItemChosen].technologies.map(
-                      (tech, index) => (
-                        <Tag
-                          key={index}
-                          closeable={false}
-                          kind="accent"
-                          variant={VARIANT.light}
-                        >
-                          {tech}
-                        </Tag>
-                      )
-                    )
-                  : CARD_WORK[menuItemChosen].technologies}
-              </StyledContents>
-            </Card>
+          <Cell span={[4, 6, 8]} style={{ paddingRight: 0, margin: 0 }}>
+            <WorkCard lightTheme={props.lightTheme} menuItemChosen={menuItemChosen} />
           </Cell>
         </Grid>
         {/* <Grid>
